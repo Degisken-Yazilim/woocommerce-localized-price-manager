@@ -1,0 +1,69 @@
+# Lives in the development repository as tools/target/deploy.yml. The publish
+# workflow never writes .github/ here; a change to this file is pushed to this
+# repository by hand.
+#
+# On every release tag: publish the GitHub release, then deploy to the
+# WordPress.org plugin directory when SVN credentials exist.
+name: Deploy
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Release and deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    env:
+      SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the version and its changelog entry
+        id: release
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+
+          awk -v heading="= ${VERSION} =" '
+            $0 == heading { found = 1; next }
+            found && /^= .* =$/ { exit }
+            found
+          ' changelog.txt > "${RUNNER_TEMP}/notes.md"
+
+          if [ ! -s "${RUNNER_TEMP}/notes.md" ]; then
+            echo "changelog.txt has no entry for ${VERSION}." >&2
+            exit 1
+          fi
+
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --verify-tag \
+            --title "Localized Price Manager ${{ steps.release.outputs.version }}" \
+            --notes-file "${RUNNER_TEMP}/notes.md"
+
+      - name: Deploy to WordPress.org
+        if: env.SVN_USERNAME != ''
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: localized-price-manager
+          VERSION: ${{ steps.release.outputs.version }}
+          ASSETS_DIR: .wordpress-org
+
+      - name: WordPress.org deploy skipped
+        if: env.SVN_USERNAME == ''
+        run: echo 'SVN_USERNAME is not set; the WordPress.org deploy was skipped.'
