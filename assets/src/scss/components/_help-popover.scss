@@ -1,0 +1,92 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+$help-trigger-size: 18px;
+$help-arrow-size: 6px;
+$help-popover-width: 280px;
+
+.lpm-help {
+	position: relative;
+	display: inline-flex;
+	flex-shrink: 0;
+	vertical-align: middle;
+}
+
+.lpm-help-trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: $help-trigger-size;
+	height: $help-trigger-size;
+	padding: 0;
+	font-size: $font-size-xs;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--lpm-help-trigger-color);
+	cursor: help;
+	background: var(--lpm-help-trigger-bg);
+	border: 1px solid var(--lpm-help-trigger-border);
+	border-radius: 50%;
+
+	@include transition(background-color, 0.15s, ease-in-out);
+
+	&:hover,
+	&:focus {
+		color: var(--lpm-help-trigger-hover-color);
+		background: var(--lpm-help-trigger-hover-bg);
+		border-color: var(--lpm-help-trigger-hover-bg);
+	}
+
+	&:focus-visible {
+		outline: none;
+		box-shadow: var(--lpm-btn-focus-shadow);
+	}
+}
+
+.lpm-help-popover {
+	position: absolute;
+	top: calc(100% + #{$help-arrow-size});
+	left: 50%;
+	z-index: 20;
+	width: max-content;
+	max-width: $help-popover-width;
+	padding: $spacing-sm $spacing-md;
+	font-size: $input-font-size-sm;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--lpm-help-popover-color);
+	text-align: left;
+	white-space: normal;
+	pointer-events: none;
+	background: var(--lpm-help-popover-bg);
+	border-radius: $input-border-radius;
+	box-shadow: var(--lpm-help-popover-shadow);
+	opacity: 0;
+	transform: translateX(-50%);
+
+	@include transition(opacity, 0.15s, ease-in-out);
+
+	&::before {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -$help-arrow-size;
+		content: "";
+
+		@include triangle(up, $help-arrow-size, var(--lpm-help-popover-bg));
+	}
+}
+
+@media (hover: hover) {
+	.lpm-help:hover > .lpm-help-popover {
+		z-index: 9999;
+		pointer-events: auto;
+		opacity: 1;
+	}
+}
+
+.lpm-help-trigger:focus-visible ~ .lpm-help-popover,
+.lpm-help.is-open > .lpm-help-popover {
+	pointer-events: auto;
+	opacity: 1;
+}

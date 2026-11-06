@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-pagination {
+	display: flex;
+	gap: $pagination-gap;
+	align-items: center;
+	justify-content: center;
+	margin: $pagination-margin 0;
+
+	.lpm-page-btn {
+		padding: $pagination-padding !important;
+		font-size: $pagination-font-size !important;
+		line-height: $btn-line-height !important;
+		color: var(--lpm-page-btn-color);
+		cursor: pointer;
+		background-color: var(--lpm-page-btn-bg);
+		border: 1px solid var(--lpm-page-btn-border);
+		border-radius: $input-border-radius;
+
+		@include transition(background-color, 0.2s, ease);
+
+		&:hover {
+			background-color: var(--lpm-page-btn-hover-bg);
+		}
+
+		&.is-active {
+			color: #fff;
+			background-color: map.get(map.get($colors, "primary"), "main");
+			border-color: map.get(map.get($colors, "primary"), "border");
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+	}
+}

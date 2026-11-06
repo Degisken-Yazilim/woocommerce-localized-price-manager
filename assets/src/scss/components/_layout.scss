@@ -1,0 +1,138 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-container {
+	width: calc(100% - #{$container-padding});
+	padding: 0;
+	margin: $container-margin 0;
+	background: var(--lpm-bg);
+	border: 1px solid var(--lpm-border-color);
+	border-radius: $container-radius;
+	box-shadow: var(--lpm-container-shadow);
+
+	h1 {
+		font-size: $h1-font-size;
+	}
+
+	h2 {
+		font-size: $h2-font-size;
+	}
+
+	h3 {
+		font-size: $h3-font-size;
+	}
+
+	h4 {
+		font-size: $h4-font-size;
+	}
+
+	h5 {
+		font-size: $h5-font-size;
+	}
+
+	h6 {
+		font-size: $h6-font-size;
+	}
+}
+
+.lpm-container-fluid {
+	width: 100%;
+	padding: 0 $spacing-lg + $spacing-xs;
+}
+
+.lpm-row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: $row-padding;
+	margin: 0;
+}
+
+.lpm-grid {
+	display: grid;
+	grid-template-columns: repeat($grid-columns, 1fr);
+	gap: $grid-gap;
+	padding: $grid-padding;
+}
+
+[class*="lpm-col-"] {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding: $col-padding;
+}
+
+@for $i from 1 through $grid-columns {
+	.lpm-col-#{$i} {
+		@include flex-col($i);
+	}
+
+	.lpm-span-#{$i} {
+		@include grid-span($i);
+	}
+}
+
+@for $i from 1 through 11 {
+	.lpm-offset-#{$i} {
+		grid-column-start: $i + 1;
+	}
+}
+
+@include respond-to(sm) {
+	@for $i from 1 through $grid-columns {
+		.lpm-col-sm-#{$i} {
+			@include flex-col($i);
+		}
+
+		.lpm-span-sm-#{$i} {
+			@include grid-span($i);
+		}
+
+		@for $i from 1 through 11 {
+			.lpm-offset-sm-#{$i} {
+				grid-column-start: $i + 1;
+			}
+		}
+	}
+}
+
+@include respond-to(md) {
+	@for $i from 1 through $grid-columns {
+		.lpm-col-md-#{$i} {
+			@include flex-col($i);
+		}
+
+		.lpm-span-md-#{$i} {
+			@include grid-span($i);
+		}
+
+		@for $i from 1 through 11 {
+			.lpm-offset-md-#{$i} {
+				grid-column-start: $i + 1;
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-md - 1) {
+	@for $i from 1 through $grid-columns {
+		.lpm-col-md-max-#{$i} {
+			@include flex-col($i);
+		}
+
+		.lpm-span-md-max-#{$i} {
+			@include grid-span($i);
+		}
+	}
+}
+
+@media (max-width: $breakpoint-sm - 1) {
+	@for $i from 1 through $grid-columns {
+		.lpm-col-sm-max-#{$i} {
+			@include flex-col($i);
+		}
+
+		.lpm-span-sm-max-#{$i} {
+			@include grid-span($i);
+		}
+	}
+}

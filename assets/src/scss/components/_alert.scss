@@ -1,0 +1,94 @@
+@use "sass:color";
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-alert {
+	position: fixed;
+	top: initial;
+	right: 0;
+	bottom: 0;
+	left: initial;
+	z-index: $alert-z-index;
+	visibility: hidden;
+	width: $alert-width;
+	min-width: $alert-min-width;
+	max-width: $alert-max-width;
+	overflow: hidden;
+	font-family: system-ui, sans-serif;
+	border-style: solid;
+	border-width: 0 1px 1px $alert-border-width;
+	border-radius: $alert-border-radius;
+	box-shadow: $alert-shadow;
+	opacity: 0;
+	transform: translate(-10%, 0) scale(0.9);
+
+	@include transition(all, 0.3s, ease);
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-10%, -15%) scale(1);
+	}
+
+	&-title {
+		padding: $alert-title-padding;
+		margin: 0;
+		font-size: $alert-title-font-size;
+		font-weight: 600;
+		color: #fff;
+	}
+
+	&-message {
+		padding: $alert-padding;
+		margin: 0;
+		font-size: $alert-font-size;
+		line-height: 1.4;
+		color: var(--lpm-alert-message-color);
+		white-space: pre-line;
+		background-color: var(--lpm-alert-message-bg);
+	}
+
+	&-close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: $spacing-sm;
+		font-size: $font-size-lg + $spacing-xs;
+		color: inherit;
+		cursor: pointer;
+		background-color: transparent;
+		border: none;
+		border-radius: $input-border-radius;
+
+		@include transition(background-color, 0.2s, ease);
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+	}
+
+	@each $type, $vals in $alert-themes {
+		&-#{$type} {
+			color: map.get($vals, text);
+			background-color: map.get($vals, main);
+			border-color: map.get($vals, dark);
+
+			&-title {
+				background-color: map.get($vals, dark);
+			}
+
+			&-close {
+				color: map.get($vals, text);
+				background-color: map.get($vals, dark);
+
+				&:hover {
+					background-color: color.adjust(
+						map.get($vals, dark),
+						$lightness: 10%
+					);
+				}
+			}
+		}
+	}
+}

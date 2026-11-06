@@ -1,0 +1,193 @@
+@use "sass:color";
+@use "sass:math";
+@use "sass:map";
+@use "variables" as *;
+
+@mixin flex-col($num) {
+	flex: 0 0 math.percentage(math.div($num, $grid-columns));
+	max-width: calc(
+		#{math.percentage(math.div($num, $grid-columns))} - #{$grid-gap * 2}
+	);
+}
+
+@mixin grid-span($num) {
+	grid-column: span $num;
+}
+
+@mixin lpm-offset($n) {
+	grid-column-start: $n + 1;
+}
+
+@mixin button-variant($color, $hover, $border) {
+	background-color: $color;
+	border-color: $border;
+
+	&:hover {
+		background-color: $hover;
+		border-color: $border;
+	}
+}
+
+@mixin button-outline-variant($color) {
+	color: $color;
+	background-color: transparent;
+	border-color: $color;
+
+	&:hover {
+		color: #fff;
+		background-color: $color;
+	}
+}
+
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height) {
+	padding: $padding-y $padding-x;
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+@mixin respond-to($breakpoint) {
+	@if $breakpoint == sm {
+		@media (min-width: $breakpoint-sm) {
+			@content;
+		}
+	} @else if $breakpoint == md {
+		@media (min-width: $breakpoint-md) {
+			@content;
+		}
+	}
+}
+
+@mixin respond-to-max($breakpoint) {
+	@if $breakpoint == sm {
+		@media (max-width: $breakpoint-sm - 1px) {
+			@content;
+		}
+	} @else if $breakpoint == md {
+		@media (max-width: $breakpoint-md - 1px) {
+			@content;
+		}
+	}
+}
+
+@mixin focus-ring($color: var(--lpm-input-focus-border), $size: 0.2rem) {
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 $size rgba($color, 0.25);
+	}
+}
+
+@mixin visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+	clip: rect(0, 0, 0, 0) !important;
+}
+
+@mixin sr-only {
+	@include visually-hidden;
+}
+
+@mixin clearfix {
+	&::after {
+		clear: both;
+		display: block;
+		content: "";
+	}
+}
+
+@mixin text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin transition($property: all, $duration: 0.15s, $easing: ease-in-out) {
+	transition: $property $duration $easing;
+}
+
+@mixin animation(
+	$name,
+	$duration: 1s,
+	$easing: linear,
+	$delay: 0s,
+	$count: infinite,
+	$direction: normal,
+	$fill-mode: none
+) {
+	animation: $name $duration $easing $delay $count $direction $fill-mode;
+}
+
+@mixin form-control-focus($color: var(--lpm-input-focus-border)) {
+	&:focus {
+		color: var(--lpm-input-color) !important;
+		outline: 0 !important;
+		background-color: var(--lpm-input-bg) !important;
+		border-color: $color !important;
+		box-shadow: var(--lpm-input-focus-shadow) !important;
+	}
+}
+
+@mixin form-control-validation($color) {
+	border-color: $color !important;
+
+	&:focus {
+		border-color: $color !important;
+		box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
+	}
+}
+
+@mixin card(
+	$padding: $spacing-lg,
+	$radius: $container-radius,
+	$shadow: var(--lpm-container-shadow)
+) {
+	padding: $padding;
+	background: var(--lpm-bg);
+	border: 1px solid var(--lpm-border-color);
+	border-radius: $radius;
+	box-shadow: $shadow;
+}
+
+@mixin triangle($direction: down, $size: 6px, $color: #000) {
+	width: 0;
+	height: 0;
+	border: $size solid transparent;
+
+	@if $direction == down {
+		border-top-color: $color;
+	} @else if $direction == up {
+		border-bottom-color: $color;
+	} @else if $direction == right {
+		border-left-color: $color;
+	} @else if $direction == left {
+		border-right-color: $color;
+	}
+}
+
+@mixin custom-scrollbar(
+	$width: 8px,
+	$track-color: #f1f1f1,
+	$thumb-color: #888
+) {
+	&::-webkit-scrollbar {
+		width: $width;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $track-color;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $thumb-color;
+		border-radius: $width;
+
+		&:hover {
+			background: color.adjust($thumb-color, $lightness: -10%);
+		}
+	}
+}

@@ -1,0 +1,122 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-btn {
+	display: inline-block;
+	padding: $btn-padding;
+	font-size: $btn-font-size;
+	font-weight: 400;
+	line-height: $btn-line-height;
+	vertical-align: middle;
+	text-align: center;
+	white-space: nowrap;
+	text-decoration: none;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid transparent;
+	border-radius: $btn-border-radius;
+	transition: $btn-transition;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: 0;
+		box-shadow: var(--lpm-btn-focus-shadow);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.65;
+	}
+}
+
+@each $name, $values in $colors {
+	.lpm-btn-#{$name} {
+		@if $name == "warning" or $name == "light" {
+			color: #212529;
+		} @else {
+			color: #fff;
+		}
+
+		@include button-variant(
+			map.get($values, "main"),
+			map.get($values, "hover"),
+			map.get($values, "border")
+		);
+	}
+
+	.lpm-btn-outline-#{$name} {
+		@include button-outline-variant(map.get($values, "main"));
+	}
+}
+
+@keyframes lpm-stripe-move {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: 125% 0;
+	}
+}
+
+.lpm-btn-loading {
+	position: relative;
+	pointer-events: none;
+	opacity: 0.9;
+
+	&.lpm-btn-info {
+		background-image: linear-gradient(
+			45deg,
+			rgba(255, 255, 255, 0.2) 25%,
+			transparent 25%,
+			transparent 50%,
+			rgba(255, 255, 255, 0.2) 50%,
+			rgba(255, 255, 255, 0.2) 75%,
+			transparent 75%,
+			transparent
+		);
+		background-size: 2rem 2rem;
+		animation: lpm-stripe-move 4s linear infinite;
+	}
+}
+
+.lpm-btn-sm {
+	padding: $btn-padding-sm;
+	font-size: $btn-font-size-sm;
+}
+
+.lpm-btn-lg {
+	padding: $btn-padding-lg;
+	font-size: $btn-font-size-lg;
+}
+
+.lpm-btn-block {
+	display: block;
+	width: 100%;
+}
+
+.lpm-btn-group {
+	position: relative;
+	display: inline-flex;
+	vertical-align: middle;
+
+	> .lpm-btn {
+		position: relative;
+		flex: 1 1 auto;
+
+		&:not(:last-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		&:not(:first-child) {
+			margin-left: -1px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+}

@@ -1,0 +1,38 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-loading-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: $loading-min-height;
+	background: var(--lpm-loading-bg);
+}
+
+.lpm-loading-spinner {
+	width: $loading-spinner-size;
+	height: $loading-spinner-size;
+	border: $loading-spinner-width solid var(--lpm-spinner-track);
+	border-top: $loading-spinner-width solid var(--lpm-spinner-color);
+	border-radius: 50%;
+
+	@include animation(lpm-spin, 1s, linear);
+}
+
+@keyframes lpm-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.lpm-loading-text {
+	position: absolute;
+	margin-top: $loading-text-margin-top;
+	font-size: $font-size-md;
+	color: var(--lpm-loading-text-color);
+}

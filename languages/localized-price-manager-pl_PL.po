@@ -1,0 +1,1478 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Localized Price Manager 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/localized-price-manager\n"
+"Last-Translator: Türker Yıldırım <me@turkeryildirim.com>\n"
+"Language-Team: Polish <me@turkeryildirim.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-24T09:00:01+00:00\n"
+"PO-Revision-Date: 2026-09-13 16:53+0000\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Domain: localized-price-manager\n"
+
+#. Plugin Name of the plugin
+#: localized-price-manager.php
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:90
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:166
+#: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:132
+msgid "Localized Price Manager"
+msgstr "Localized Price Manager"
+
+#. Description of the plugin
+#: localized-price-manager.php
+msgid "Localized Price Manager for WooCommerce"
+msgstr "Localized Price Manager for WooCommerce"
+
+#. Author of the plugin
+#: localized-price-manager.php
+msgid "Türker Yıldırım <me@turkeryildirim.com>"
+msgstr "Türker Yıldırım <me@turkeryildirim.com>"
+
+#: localized-price-manager.php:82
+msgid "Localized Price Manager requires WooCommerce to be installed and active."
+msgstr "Localized Price Manager wymaga, aby WooCommerce był zainstalowany i włączony."
+
+#. translators: 1: minimum supported WooCommerce version, 2: active WooCommerce version.
+#: localized-price-manager.php:85
+#, php-format
+msgid "Localized Price Manager needs WooCommerce %1$s or newer. WooCommerce %2$s is active, so localized prices stay switched off."
+msgstr "Localized Price Manager wymaga WooCommerce %1$s lub nowszego. Włączona wersja to %2$s, dlatego zlokalizowane ceny pozostają wyłączone."
+
+#: src/Core/Database/Traits/HasErrorHandling.php:50
+msgid "An error occurred while processing your database request."
+msgstr "Podczas przetwarzania zapytania do bazy danych wystąpił błąd."
+
+#: src/Core/Enums/FallbackModeEnum.php:43
+msgid "Convert to global currency"
+msgstr "Przelicz na walutę globalną"
+
+#: src/Core/Enums/FallbackModeEnum.php:44
+msgid "Hide price and product"
+msgstr "Ukryj cenę i produkt"
+
+#: src/Core/Enums/FallbackModeEnum.php:45
+msgid "Show store base price"
+msgstr "Pokaż cenę bazową sklepu"
+
+#: src/Core/Enums/IPDetectionStrategyEnum.php:53
+msgid "Strict — only the connecting IP address"
+msgstr "Ścisły — tylko łączący adres IP"
+
+#: src/Core/Enums/IPDetectionStrategyEnum.php:54
+msgid "Trusted CDN — also read the forwarded headers declared below"
+msgstr "Zaufany CDN — odczytuj również przekazane nagłówki zadeklarowane poniżej"
+
+#: src/Core/Enums/LogLevelEnum.php:51
+msgid "Emergency"
+msgstr "Awaria"
+
+#: src/Core/Enums/LogLevelEnum.php:52
+msgid "Alert"
+msgstr "Alarm"
+
+#: src/Core/Enums/LogLevelEnum.php:53
+msgid "Critical"
+msgstr "Krytyczny"
+
+#: src/Core/Enums/LogLevelEnum.php:54
+#: src/Modules/DiagnosticLog/Enums/LogChannelEnum.php:30
+msgid "Error"
+msgstr "Błąd"
+
+#: src/Core/Enums/LogLevelEnum.php:55
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+#: src/Core/Enums/LogLevelEnum.php:56
+msgid "Notice"
+msgstr "Powiadomienie"
+
+#: src/Core/Enums/LogLevelEnum.php:57
+msgid "Info"
+msgstr "Informacja"
+
+#: src/Core/Enums/LogLevelEnum.php:58
+msgid "Debug"
+msgstr "Debugowanie"
+
+#: src/Core/Enums/RoundingModeEnum.php:38
+msgid "Always round up"
+msgstr "Zawsze zaokrąglaj w górę"
+
+#: src/Core/Enums/RoundingModeEnum.php:39
+msgid "Always round down"
+msgstr "Zawsze zaokrąglaj w dół"
+
+#: src/Core/Lifecycle/Activator.php:185
+msgid "permission check"
+msgstr "sprawdzenie uprawnień"
+
+#: src/Core/Lifecycle/Activator.php:186
+msgid "database schema"
+msgstr "schemat bazy danych"
+
+#: src/Core/Lifecycle/Activator.php:187
+msgid "default settings"
+msgstr "ustawienia domyślne"
+
+#: src/Core/Lifecycle/Activator.php:188
+msgid "scheduled task intervals"
+msgstr "odstępy zaplanowanych zadań"
+
+#: src/Core/Lifecycle/Activator.php:189
+msgid "background jobs"
+msgstr "zadania w tle"
+
+#. translators: %s: comma separated list of activation steps.
+#: src/Core/Lifecycle/Activator.php:207
+#, php-format
+msgid "Localized Price Manager activated, but one step did not complete: %s. The plugin may not work correctly until it does; see the diagnostic log."
+msgid_plural "Localized Price Manager activated, but some steps did not complete: %s. The plugin may not work correctly until they do; see the diagnostic log."
+msgstr[0] "Localized Price Manager został włączony, ale jeden krok nie został ukończony: %s. Do tego czasu wtyczka może działać nieprawidłowo; sprawdź dziennik diagnostyczny."
+msgstr[1] "Localized Price Manager został włączony, ale niektóre kroki nie zostały ukończone: %s. Do tego czasu wtyczka może działać nieprawidłowo; sprawdź dziennik diagnostyczny."
+msgstr[2] "Localized Price Manager został włączony, ale niektóre kroki nie zostały ukończone: %s. Do tego czasu wtyczka może działać nieprawidłowo; sprawdź dziennik diagnostyczny."
+
+#. translators: %d: number of migrations that failed.
+#: src/Core/Lifecycle/SchemaUpgrader.php:127
+#, php-format
+msgid "Localized Price Manager could not apply %d pending database migration. The plugin is running against an older schema; run \"wp d6n-lpm migrate run\" or check the diagnostic log."
+msgid_plural "Localized Price Manager could not apply %d pending database migrations. The plugin is running against an older schema; run \"wp d6n-lpm migrate run\" or check the diagnostic log."
+msgstr[0] "Localized Price Manager nie mógł zastosować %d oczekującej migracji bazy danych. Wtyczka działa na starszym schemacie; uruchom \"wp d6n-lpm migrate run\" lub sprawdź dziennik diagnostyczny."
+msgstr[1] "Localized Price Manager nie mógł zastosować %d oczekujących migracji bazy danych. Wtyczka działa na starszym schemacie; uruchom \"wp d6n-lpm migrate run\" lub sprawdź dziennik diagnostyczny."
+msgstr[2] "Localized Price Manager nie mógł zastosować %d oczekujących migracji bazy danych. Wtyczka działa na starszym schemacie; uruchom \"wp d6n-lpm migrate run\" lub sprawdź dziennik diagnostyczny."
+
+#: src/Core/Lifecycle/SchemaUpgrader.php:142
+msgid "Localized Price Manager could not apply its pending database migrations. The plugin is running against an older schema; run \"wp d6n-lpm migrate run\" or check the diagnostic log."
+msgstr "Localized Price Manager nie mógł zastosować oczekujących migracji bazy danych. Wtyczka działa na starszym schemacie; uruchom \"wp d6n-lpm migrate run\" lub sprawdź dziennik diagnostyczny."
+
+#: src/Core/Shared/CronHelper.php:27
+msgid "Every 3 Hours (8 times per day)"
+msgstr "Co 3 godziny (8 razy na dobę)"
+
+#: src/Core/Shared/CronHelper.php:46
+msgid "Every 4 Hours"
+msgstr "Co 4 godziny"
+
+#: src/Core/Shared/CronHelper.php:65
+msgid "Every 6 Hours"
+msgstr "Co 6 godzin"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:155
+#: src/Modules/AdminPortal/AdminPortalModule.php:156
+msgid "Localized Price"
+msgstr "Zlokalizowana cena"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:272
+#: src/Modules/AdminPortal/Controllers/SettingsController.php:187
+msgid "Settings saved."
+msgstr "Ustawienia zapisane."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:273
+msgid "The settings could not be saved."
+msgstr "Nie udało się zapisać ustawień."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:274
+msgid "The server could not be reached."
+msgstr "Nie udało się połączyć z serwerem."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:275
+msgid "Saving…"
+msgstr "Zapisywanie…"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:276
+msgid "Are you sure? This cannot be undone."
+msgstr "Na pewno? Tego nie można cofnąć."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:277
+msgid "Dismiss this notice."
+msgstr "Odrzuć to powiadomienie."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:278
+msgid "Row removed. Save to apply the change."
+msgstr "Wiersz usunięty. Zapisz, aby zastosować zmianę."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:279
+msgid "The table could not be loaded."
+msgstr "Nie udało się wczytać tabeli."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:280
+msgid "No countries match this search."
+msgstr "Żaden kraj nie odpowiada temu zapytaniu."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:281
+msgid "No countries to show."
+msgstr "Brak krajów do wyświetlenia."
+
+#. translators: 1: first row number, 2: last row number, 3: total rows.
+#: src/Modules/AdminPortal/AdminPortalModule.php:283
+#, php-format
+msgid "Showing %1$d to %2$d of %3$d countries."
+msgstr "Wyświetlanie %1$d–%2$d z %3$d krajów."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:284
+msgid "Previous page"
+msgstr "Poprzednia strona"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:285
+msgid "Next page"
+msgstr "Następna strona"
+
+#. translators: %d: page number.
+#: src/Modules/AdminPortal/AdminPortalModule.php:287
+#, php-format
+msgid "Go to page %d"
+msgstr "Przejdź do strony %d"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:288
+msgid "Select at least one country first."
+msgstr "Najpierw wybierz co najmniej jeden kraj."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:289
+msgid "Choose a bulk action first."
+msgstr "Najpierw wybierz działanie masowe."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:290
+msgid "Apply this action to every selected country?"
+msgstr "Zastosować to działanie do każdego wybranego kraju?"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:291
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:148
+msgid "Edit group"
+msgstr "Edytuj grupę"
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:292
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:161
+msgid "Add a group"
+msgstr "Dodaj grupę"
+
+#. translators: 1: item label, 2: new position, 3: number of items.
+#: src/Modules/AdminPortal/AdminPortalModule.php:294
+#: src/Modules/AdminPortal/Settings/FieldRenderer.php:335
+#, php-format
+msgid "%1$s moved to position %2$d of %3$d."
+msgstr "%1$s przeniesiono na pozycję %2$d z %3$d."
+
+#: src/Modules/AdminPortal/AdminPortalModule.php:295
+msgid "Unassigned"
+msgstr "Nieprzypisane"
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:211
+msgid "Country currency mapping saved."
+msgstr "Przypisanie waluty kraju zapisane."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:228
+msgid "That bulk action is not one this table offers."
+msgstr "Ta tabela nie udostępnia takiego działania masowego."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:238
+msgid "Select at least one country before applying a bulk action."
+msgstr "Wybierz co najmniej jeden kraj, zanim zastosujesz działanie masowe."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:324
+msgid "Country currency mapping enabled."
+msgstr "Włączono mapowanie waluty kraju."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:325
+msgid "Country currency mapping disabled."
+msgstr "Przypisanie waluty kraju wyłączone."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:354
+msgid "Country reset to its native currency."
+msgstr "Walutę przywrócono do waluty kraju."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:425
+msgid "Country group saved."
+msgstr "Grupa krajów zapisana."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:481
+msgid "Country group updated."
+msgstr "Grupa krajów zaktualizowana."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:505
+#, php-format
+msgid "This group still prices %s. Move that country to another group, or leave it ungrouped, before deleting this one."
+msgid_plural "This group still prices %s. Move those countries to another group, or leave them ungrouped, before deleting this one."
+msgstr[0] "Ta grupa nadal ustala cenę dla %s. Przed usunięciem grupy przenieś ten kraj do innej grupy lub zostaw go bez grupy."
+msgstr[1] "Ta grupa nadal ustala cenę dla %s. Przed usunięciem grupy przenieś te kraje do innej grupy lub zostaw je bez grupy."
+msgstr[2] "Ta grupa nadal ustala cenę dla %s. Przed usunięciem grupy przenieś te kraje do innej grupy lub zostaw je bez grupy."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:547
+msgid "Country group deleted."
+msgstr "Grupa krajów usunięta."
+
+#. translators: %s: submitted currency code.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:810
+#, php-format
+msgid "\"%s\" is not a currency WooCommerce knows."
+msgstr "\"%s\" nie jest walutą, którą zna WooCommerce."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:844
+msgid "That country group does not exist, or is no longer active."
+msgstr "Ta grupa krajów nie istnieje lub nie jest już aktywna."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:864
+msgid "A country group needs a name it can be identified by."
+msgstr "Grupa krajów potrzebuje nazwy, po której da się ją rozpoznać."
+
+#. translators: 1: number of countries updated, 2: number of countries skipped.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:884
+#, php-format
+msgid "%1$d updated, %2$d skipped."
+msgstr "Zaktualizowano %1$d, pominięto %2$d."
+
+#. translators: %d: number of countries reset.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:893
+#, php-format
+msgid "%d country reset to its native currency."
+msgid_plural "%d countries reset to their native currency."
+msgstr[0] "%d waluta przywrócona do waluty kraju."
+msgstr[1] "%d waluty przywrócone do waluty kraju."
+msgstr[2] "%d walut przywróconych do waluty kraju."
+
+#. translators: %d: number of countries whose group changed.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:901
+#, php-format
+msgid "%d country's group updated."
+msgid_plural "%d countries' groups updated."
+msgstr[0] "Zaktualizowano grupę dla %d kraju."
+msgstr[1] "Zaktualizowano grupy dla %d krajów."
+msgstr[2] "Zaktualizowano grupy dla %d krajów."
+
+#. translators: %d: number of countries disabled.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:909
+#, php-format
+msgid "%d country disabled."
+msgid_plural "%d countries disabled."
+msgstr[0] "%d kraj wyłączony."
+msgstr[1] "%d kraje wyłączone."
+msgstr[2] "%d krajów wyłączonych."
+
+#. translators: %d: number of countries saved.
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:916
+#, php-format
+msgid "%d country saved."
+msgid_plural "%d countries saved."
+msgstr[0] "%d kraj zapisany."
+msgstr[1] "%d kraje zapisane."
+msgstr[2] "%d krajów zapisanych."
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:1079
+msgid "A valid ISO 3166-1 alpha-2 country code is required."
+msgstr "Wymagany jest prawidłowy kod kraju ISO 3166-1 alfa-2."
+
+#: src/Modules/AdminPortal/Controllers/ExchangeRatesController.php:103
+#: src/Modules/AdminPortal/Pages/RatesTab.php:135
+msgid "The exchange rates service is not available."
+msgstr "Usługa kursów wymiany jest niedostępna."
+
+#: src/Modules/AdminPortal/Controllers/ExchangeRatesController.php:121
+#: src/Modules/AdminPortal/Pages/RatesTab.php:133
+msgid "Exchange rates updated."
+msgstr "Kursy wymiany zaktualizowane."
+
+#: src/Modules/AdminPortal/Controllers/ExchangeRatesController.php:122
+#: src/Modules/AdminPortal/Pages/RatesTab.php:134
+msgid "No provider could supply rates. Check the service log."
+msgstr "Żaden dostawca nie dostarczył kursów. Sprawdź dziennik usługi."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:72
+msgid "Restrict the result to one log channel."
+msgstr "Ogranicz wynik do jednego kanału dziennika."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:78
+msgid "Restrict the result to one severity level."
+msgstr "Ogranicz wynik do jednego poziomu ważności."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:83
+msgid "Substring searched in the log message."
+msgstr "Fragment tekstu szukany w treści wpisu dziennika."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:89
+msgid "Only return entries from the start of this calendar date, read in the site timezone (YYYY-MM-DD)."
+msgstr "Zwraca tylko wpisy od początku tego dnia kalendarzowego, odczytanego w strefie czasowej witryny (YYYY-MM-DD)."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:95
+msgid "Only return entries up to the end of this calendar date, read in the site timezone (YYYY-MM-DD)."
+msgstr "Zwraca tylko wpisy do końca tego dnia kalendarzowego, odczytanego w strefie czasowej witryny (YYYY-MM-DD)."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:103
+msgid "Page size."
+msgstr "Rozmiar strony."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:110
+msgid "Number of records to skip."
+msgstr "Liczba pomijanych wpisów."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:207
+msgid "Unknown log channel."
+msgstr "Nieznany kanał dziennika."
+
+#: src/Modules/AdminPortal/Controllers/LogViewerController.php:233
+msgid "Unknown log level."
+msgstr "Nieznany poziom dziennika."
+
+#: src/Modules/AdminPortal/Controllers/SettingsController.php:119
+msgid "Unknown settings tab."
+msgstr "Nieznana karta ustawień."
+
+#: src/Modules/AdminPortal/Controllers/SettingsController.php:188
+msgid "Settings saved, but some values were rejected."
+msgstr "Ustawienia zapisane, ale część wartości odrzucono."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:96
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:116
+msgid "Localized pricing rules"
+msgstr "Reguły zlokalizowanych cen"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:98
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:119
+msgid "A category rule may set a target currency, a rate override or a purchase block. A fixed amount is never meaningful across a whole category."
+msgstr "Reguła kategorii może ustawić walutę docelową, własny kurs lub blokadę zakupu. Kwota stała nigdy nie ma sensu dla całej kategorii."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:136
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:147
+msgid "Active"
+msgstr "Włączony"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:136
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:147
+msgid "Enable or disable this country rule."
+msgstr "Włącz lub wyłącz tę regułę dla kraju."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:137
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:148
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:352
+msgid "Country"
+msgstr "Kraj"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:137
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:148
+msgid "Select the country this rule applies to."
+msgstr "Wybierz kraj, do którego ma zastosowanie ta reguła."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:138
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:149
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:101
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:168
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:169
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:287
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:353
+msgid "Currency"
+msgstr "Waluta"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:138
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:149
+msgid "Target currency for this country. Leave empty to use the country default currency."
+msgstr "Waluta docelowa dla tego kraju. Pozostaw puste, aby użyć domyślnej waluty kraju."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:139
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:152
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:64
+msgid "Rate"
+msgstr "Kurs"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:139
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:152
+msgid "Custom exchange rate multiplier. Leave empty to use the store exchange rate."
+msgstr "Niestandardowy mnożnik kursu wymiany. Pozostaw puste, aby użyć kursu sklepu."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:140
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:153
+msgid "Disable sale"
+msgstr "Wyłącz promocję"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:140
+msgid "Hide products in this category and prevent customers from purchasing them in this country."
+msgstr "Ukryj produkty z tej kategorii i uniemożliw ich zakup klientom z tego kraju."
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:141
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:154
+msgid "Remove"
+msgstr "Usuń"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:151
+msgid "+ Add country rule"
+msgstr "+ Dodaj regułę kraju"
+
+#. translators: %s: label of the field this help text belongs to.
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:170
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:170
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:533
+#: src/Modules/AdminPortal/Settings/FieldRenderer.php:78
+#, php-format
+msgid "Help: %s"
+msgstr "Pomoc: %s"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:216
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:215
+msgid "Rule is active"
+msgstr "Reguła jest aktywna"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:225
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:220
+msgid "— Select country —"
+msgstr "— Wybierz kraj —"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:234
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:224
+msgid "— Country default —"
+msgstr "— Domyślna wartość kraju —"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:249
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:243
+msgid "Block this country"
+msgstr "Zablokuj ten kraj"
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:253
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:247
+msgid "Remove row"
+msgstr "Usuń wiersz"
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:447
+#, php-format
+msgid "Localized Price Manager could not save the category price rule for %s. The rule already stored for it was kept unchanged."
+msgid_plural "Localized Price Manager could not save the category price rules for %s. The rules already stored for them were kept unchanged."
+msgstr[0] "Localized Price Manager nie mógł zapisać reguły ceny kategorii dla %s. Reguła już zapisana dla tego kraju pozostała bez zmian."
+msgstr[1] "Localized Price Manager nie mógł zapisać reguł ceny kategorii dla %s. Reguły już zapisane dla tych krajów pozostały bez zmian."
+msgstr[2] "Localized Price Manager nie mógł zapisać reguł ceny kategorii dla %s. Reguły już zapisane dla tych krajów pozostały bez zmian."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:463
+#, php-format
+msgid "Localized Price Manager did not save the category price rule for %s: the rate was negative, zero, too large, or had more decimal places than the column allows, or the currency was not one WooCommerce knows. The rule already stored for it was kept unchanged."
+msgid_plural "Localized Price Manager did not save the category price rules for %s: a rate was negative, zero, too large, or had more decimal places than the column allows, or the currency was not one WooCommerce knows. The rules already stored for them were kept unchanged."
+msgstr[0] "Localized Price Manager nie zapisał reguły ceny kategorii dla %s: kurs był ujemny, zerowy lub zbyt duży, miał więcej miejsc po przecinku, niż dopuszcza kolumna, albo waluta nie była znana WooCommerce. Reguła już zapisana dla tego kraju pozostała bez zmian."
+msgstr[1] "Localized Price Manager nie zapisał reguł ceny kategorii dla %s: któryś kurs był ujemny, zerowy lub zbyt duży, miał więcej miejsc po przecinku, niż dopuszcza kolumna, albo waluta nie była znana WooCommerce. Reguły już zapisane dla tych krajów pozostały bez zmian."
+msgstr[2] "Localized Price Manager nie zapisał reguł ceny kategorii dla %s: któryś kurs był ujemny, zerowy lub zbyt duży, miał więcej miejsc po przecinku, niż dopuszcza kolumna, albo waluta nie była znana WooCommerce. Reguły już zapisane dla tych krajów pozostały bez zmian."
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:86
+msgid "Localized Prices"
+msgstr "Zlokalizowane ceny"
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:115
+msgid "Per-country price overrides"
+msgstr "Ceny według kraju"
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:129
+msgid "+ Add country"
+msgstr "+ Dodaj kraj"
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:150
+msgid "Price"
+msgstr "Cena"
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:151
+msgid "Sale price"
+msgstr "Cena promocyjna"
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:151
+msgid "Fixed sale price for this country. Active only when the base product has a sale price."
+msgstr "Stała cena promocyjna dla tego kraju. Aktywna tylko wtedy, gdy produkt bazowy ma cenę promocyjną."
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:153
+msgid "Hide this product and prevent customers from purchasing it in this country."
+msgstr "Ukryj ten produkt i uniemożliw jego zakup klientom z tego kraju."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:94
+msgid "Country groups"
+msgstr "Grupy krajów"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:99
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:164
+msgid "Name"
+msgstr "Nazwa"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:100
+msgid "Slug"
+msgstr "Slug"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:102
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:174
+msgid "Rate override"
+msgstr "Własny kurs"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:105
+msgid "Help: rate override"
+msgstr "Pomoc: własny kurs"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:109
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:370
+msgid "Actions"
+msgstr "Działania"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:113
+msgid "No country groups are defined yet."
+msgstr "Nie zdefiniowano jeszcze żadnych grup krajów."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:149
+msgid "Delete group"
+msgstr "Usuń grupę"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:181
+msgid "Save group"
+msgstr "Zapisz grupę"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:182
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:194
+msgid "Country currencies"
+msgstr "Waluty krajów"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:195
+msgid "The currency, symbol and number format each country is priced in. Switch \"Active\" off to stop pricing a country — the row stays here with everything you configured, so switching it back on restores it. \"Reset\" is the destructive one: it replaces your settings with the seeded native currency."
+msgstr "Waluta, symbol i format liczb, w jakich wyceniany jest każdy kraj. Wyłącz „Aktywny”, aby wstrzymać wycenę dla danego kraju — wiersz pozostaje z całą konfiguracją, więc ponowne włączenie go przywraca. „Resetuj” jest nieodwracalne: zastępuje ustawienia domyślną walutą lokalną."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:231
+msgid "Bulk action"
+msgstr "Działanie masowe"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:233
+msgid "Bulk actions"
+msgstr "Działania masowe"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:234
+msgid "Enable selected"
+msgstr "Włącz zaznaczone"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:235
+msgid "Disable selected"
+msgstr "Wyłącz wybrane"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:236
+msgid "Save selected"
+msgstr "Zapisz wybrane"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:237
+msgid "Reset selected to native"
+msgstr "Przywróć wybrane do waluty kraju"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:238
+msgid "Assign selected to group"
+msgstr "Przypisz zaznaczone do grupy"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:241
+msgid "Group to assign"
+msgstr "Grupa do przypisania"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:243
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:295
+msgid "— No group —"
+msgstr "— Brak grupy —"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:247
+msgid "Apply"
+msgstr "Zastosuj"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:253
+msgid "Search countries"
+msgstr "Szukaj krajów"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:254
+msgid "Search country or currency…"
+msgstr "Szukaj kraju lub waluty…"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:255
+msgid "Per page"
+msgstr "Na stronę"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:280
+msgid "Status"
+msgstr "Status"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:282
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:289
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:294
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:119
+msgid "All"
+msgstr "Wszystkie"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:283
+msgid "Enabled"
+msgstr "Włączone"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:284
+msgid "Disabled"
+msgstr "Wyłączone"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:292
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:369
+msgid "Group"
+msgstr "Grupa"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:333
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:582
+msgid "Loading countries…"
+msgstr "Wczytywanie krajów…"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:337
+msgid "Country table pages"
+msgstr "Strony tabeli krajów"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:349
+msgid "Select every country on this page"
+msgstr "Wybierz wszystkie kraje na tej stronie"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:354
+msgid "Native"
+msgstr "Waluta kraju"
+
+#. translators: %s: column label.
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:363
+#, php-format
+msgid "Sort by %s"
+msgstr "Sortuj według %s"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:368
+msgid "Number format"
+msgstr "Format liczb"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:393
+msgid "Select this country"
+msgstr "Wybierz ten kraj"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:398
+msgid "Currency code"
+msgstr "Kod waluty"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:404
+msgid "Country group"
+msgstr "Grupa krajów"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:409
+msgid "Price this country"
+msgstr "Wyceniaj ten kraj"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:411
+msgid "Save this country"
+msgstr "Zapisz ten kraj"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:412
+msgid "Reset this country to its native currency"
+msgstr "Przywróć do waluty kraju"
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:450
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:480
+msgid "— None —"
+msgstr "— Brak —"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:83
+msgid "Date"
+msgstr "Data"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:84
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:209
+msgid "Channel"
+msgstr "Kanał"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:85
+msgid "Level"
+msgstr "Poziom"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:86
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:65
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:211
+msgid "Source"
+msgstr "Źródło"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:87
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:212
+msgid "Message"
+msgstr "Treść"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:88
+msgid "User"
+msgstr "Użytkownik"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:89
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:214
+msgid "IP address"
+msgstr "Adres IP"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:255
+msgid "No log entries found."
+msgstr "Nie znaleziono wpisów dziennika."
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:272
+msgid "Filter by level"
+msgstr "Filtruj według poziomu"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:274
+msgid "All levels"
+msgstr "Wszystkie poziomy"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:287
+msgid "Filter from date"
+msgstr "Filtruj od daty"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:288
+msgid "Filter to date"
+msgstr "Filtruj do daty"
+
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:290
+msgid "Filter"
+msgstr "Filtruj"
+
+#. translators: %s: number of log entries the current filter matches.
+#: src/Modules/AdminPortal/Pages/LogsListTable.php:320
+#, php-format
+msgid "Clear %s entry"
+msgid_plural "Clear %s entries"
+msgstr[0] "Wyczyść %s wpis"
+msgstr[1] "Wyczyść %s wpisy"
+msgstr[2] "Wyczyść %s wpisów"
+
+#: src/Modules/AdminPortal/Pages/LogsPage.php:76
+msgid "You are not allowed to view the diagnostic log."
+msgstr "Nie masz uprawnień do przeglądania dziennika diagnostycznego."
+
+#: src/Modules/AdminPortal/Pages/LogsPage.php:102
+msgid "Search log"
+msgstr "Szukaj w dzienniku"
+
+#: src/Modules/AdminPortal/Pages/LogsPage.php:122
+msgid "You are not allowed to delete diagnostic log entries."
+msgstr "Nie masz uprawnień do usuwania wpisów dziennika diagnostycznego."
+
+#: src/Modules/AdminPortal/Pages/LogsPage.php:206
+msgid "The log entries could not be deleted. Nothing was removed."
+msgstr "Nie udało się usunąć wpisów dziennika. Nic nie zostało usunięte."
+
+#. translators: %s: number of deleted log entries.
+#: src/Modules/AdminPortal/Pages/LogsPage.php:225
+#, php-format
+msgid "Deleted %s log entry."
+msgid_plural "Deleted %s log entries."
+msgstr[0] "Usunięto %s wpis dziennika."
+msgstr[1] "Usunięto %s wpisy dziennika."
+msgstr[2] "Usunięto %s wpisów dziennika."
+
+#. translators: %s: number of log entries the current filter matches.
+#: src/Modules/AdminPortal/Pages/LogsPage.php:244
+#, php-format
+msgid "Delete %s log entries matching the current filter? This cannot be undone."
+msgstr "Usunąć %s wpisów dziennika pasujących do bieżącego filtra? Tej operacji nie można cofnąć."
+
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:62
+msgid "Base"
+msgstr "Bazowa"
+
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:63
+msgid "Target"
+msgstr "Docelowa"
+
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:66
+msgid "Last updated"
+msgstr "Ostatnia aktualizacja"
+
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:179
+msgid "No exchange rates have been stored yet."
+msgstr "Nie zapisano jeszcze żadnych kursów wymiany."
+
+#: src/Modules/AdminPortal/Pages/RatesTab.php:108
+msgid "You are not allowed to refresh the exchange rates."
+msgstr "Nie masz uprawnień do odświeżania kursów wymiany."
+
+#: src/Modules/AdminPortal/Pages/RatesTab.php:166
+msgid "No rate has been stored yet. Rates arrive with the scheduled refresh, or with the button below."
+msgstr "Nie zapisano jeszcze żadnego kursu. Kursy pojawią się wraz z zaplanowanym odświeżeniem lub po kliknięciu poniższego przycisku."
+
+#. translators: %s: date and time of the most recent rate update.
+#: src/Modules/AdminPortal/Pages/RatesTab.php:179
+#, php-format
+msgid "Rates last updated: %s"
+msgstr "Ostatnia aktualizacja kursów: %s"
+
+#: src/Modules/AdminPortal/Pages/RatesTab.php:199
+msgid "Refresh rates now"
+msgstr "Odśwież kursy teraz"
+
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:64
+msgid "You are not allowed to manage these settings."
+msgstr "Nie masz uprawnień do zarządzania tymi ustawieniami."
+
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:151
+msgid "Save changes"
+msgstr "Zapisz zmiany"
+
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:154
+msgid "Update rates now"
+msgstr "Zaktualizuj kursy teraz"
+
+#: src/Modules/AdminPortal/Rest/RestController.php:62
+msgid "You are not allowed to manage Localized Price Manager settings."
+msgstr "Nie masz uprawnień do zarządzania ustawieniami Localized Price Manager."
+
+#: src/Modules/AdminPortal/Settings/FieldRenderer.php:322
+msgid "Move up"
+msgstr "W górę"
+
+#: src/Modules/AdminPortal/Settings/FieldRenderer.php:323
+msgid "Move down"
+msgstr "W dół"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:47
+msgid "General"
+msgstr "Ogólne"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:48
+msgid "Rate Settings"
+msgstr "Ustawienia kursów"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:49
+msgid "Exchange Rates"
+msgstr "Kursy wymiany"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:50
+msgid "Geolocation"
+msgstr "Geolokalizacja"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:51
+msgid "Countries & Groups"
+msgstr "Kraje i grupy"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:52
+msgid "Logs"
+msgstr "Dzienniki"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:158
+msgid "Localized pricing"
+msgstr "Zlokalizowane ceny"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:159
+msgid "Master switch. When off, WooCommerce prices are left untouched."
+msgstr "Główny przełącznik. Gdy jest wyłączony, ceny WooCommerce pozostają nietknięte."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:168
+msgid "Customer country source"
+msgstr "Źródło kraju klienta"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:169
+msgid "Which country wins when the billing address and the detected IP disagree."
+msgstr "Co ma pierwszeństwo, gdy adres rozliczeniowy i wykryte IP się różnią."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:171
+msgid "Billing address"
+msgstr "Adres rozliczeniowy"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:172
+msgid "IP geolocation"
+msgstr "Geolokalizacja po IP"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:181
+msgid "Converted price rounding"
+msgstr "Zaokrąglanie przeliczonych cen"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:182
+msgid "Applied to automatically converted prices only. Manually entered prices are never rounded."
+msgstr "Dotyczy tylko cen przeliczonych automatycznie. Ceny wpisane ręcznie nigdy nie są zaokrąglane."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:191
+msgid "Unconfigured country behaviour"
+msgstr "Zachowanie dla nieskonfigurowanych krajów"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:192
+msgid "What to do when no product, category or country rule matches. Hiding removes the price and the add to cart button and blocks the purchase, but the product still appears in catalogue listings, where sorting and the price filter widget continue to use store base prices."
+msgstr "Co zrobić, gdy nie pasuje żadna reguła produktu, kategorii ani kraju. Ukrycie usuwa cenę i przycisk dodania do koszyka oraz blokuje zakup, ale produkt nadal pojawia się na listach katalogu, gdzie sortowanie i widget filtra cen wciąż korzystają z cen bazowych sklepu."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:201
+msgid "Minimum log level"
+msgstr "Minimalny poziom dziennika"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:202
+msgid "Records below this severity are discarded. The audit channel ignores this threshold."
+msgstr "Wpisy o mniejszej ważności są odrzucane. Kanał audytu ignoruje ten próg."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:219
+msgid "Database logging"
+msgstr "Dziennik w bazie danych"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:220
+msgid "Store log records in the plugin log table so the log viewer can show them."
+msgstr "Zapisuj wpisy dziennika w tabeli wtyczki, aby przeglądarka dziennika mogła je pokazać."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:228
+msgid "File logging"
+msgstr "Dziennik w plikach"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:229
+msgid "Mirror records into the protected WooCommerce log directory."
+msgstr "Kopiuj wpisy do chronionego katalogu dzienników WooCommerce."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:237
+msgid "Log retention"
+msgstr "Czas przechowywania dziennika"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:238
+msgid "Older records are removed by the scheduled purge task."
+msgstr "Starsze wpisy są usuwane przez zaplanowane zadanie porządkujące."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:240
+msgid "7 days"
+msgstr "7 dni"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:241
+msgid "14 days"
+msgstr "14 dni"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:242
+msgid "30 days"
+msgstr "30 dni"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:243
+msgid "60 days"
+msgstr "60 dni"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:244
+msgid "90 days"
+msgstr "90 dni"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:255
+msgid "Delete all data on uninstall"
+msgstr "Usuń wszystkie dane przy odinstalowaniu"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:274
+msgid "Global fallback currency"
+msgstr "Globalna waluta domyślna"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:275
+msgid "Used by the \"convert\" fallback mode. Defaults to the shop base currency."
+msgstr "Używana przez tryb zapasowy \"przelicz\". Domyślnie jest to waluta bazowa sklepu."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:284
+msgid "Preferred provider"
+msgstr "Preferowany dostawca"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:294
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:345
+msgid "Active providers"
+msgstr "Włączeni dostawcy"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:304
+msgid "Update frequency"
+msgstr "Częstotliwość aktualizacji"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:305
+msgid "How often the background task refreshes the rate table."
+msgstr "Jak często zadanie w tle odświeża tabelę kursów."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:307
+msgid "Every 3 hours (8x per day)"
+msgstr "Co 3 godziny (8 razy na dobę)"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:308
+msgid "Every 4 hours (6x per day)"
+msgstr "Co 4 godziny (6 razy dziennie)"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:309
+msgid "Every 6 hours (4x per day)"
+msgstr "Co 6 godzin (4 razy dziennie)"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:310
+msgid "Once a day"
+msgstr "Raz na dobę"
+
+#. translators: %s: provider name.
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:325
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:360
+#, php-format
+msgid "%s API key"
+msgstr "Klucz API %s"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:370
+msgid "IP detection strategy"
+msgstr "Strategia wykrywania IP"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:371
+msgid "Leave this on Strict unless the site is behind a CDN or reverse proxy. Strict reads the connecting address and nothing else, which no visitor can forge."
+msgstr "Pozostaw tę opcję jako Ścisły, chyba że witryna znajduje się za siecią CDN lub odwrotnym serwerem proxy. Tryb ścisły odczytuje wyłącznie adres łączący, którego odwiedzający nie mogą sfałszować."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:389
+msgid "Trusted client IP headers"
+msgstr "Zaufane nagłówki IP klienta"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:390
+msgid "One header per line, most trusted first — for example CF-Connecting-IP, True-Client-IP, X-Real-IP. Only these are read, and only from a connecting address inside the approved ranges below. Name the header your own ingress writes: listing one you do not run lets visitors spoof their country. Left empty, no forwarded header is read at all."
+msgstr "Jeden nagłówek w wierszu, od najbardziej zaufanego — np. CF-Connecting-IP, True-Client-IP, X-Real-IP. Odczytywane są tylko one i tylko z zatwierdzonych poniżej zakresów. Podaj nagłówek zapisywany przez własny ingress. Pozostawione puste oznacza brak odczytu nagłówków."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:401
+msgid "Trusted country headers"
+msgstr "Zaufane nagłówki kraju"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:402
+msgid "Optional. One header per line — for example CF-IPCountry. These carry a country code the edge has already resolved, so a match skips IP geolocation entirely. Same trust rules as above. Left empty, the country is always resolved from the IP address."
+msgstr "Opcjonalnie. Jeden nagłówek w wierszu — np. CF-IPCountry. Zawierają one kod kraju rozwiązany już na brzegu sieci, więc dopasowanie całkowicie pomija geolokalizację IP. Te same zasady zaufania. Pozostawione puste oznacza pobieranie kraju z adresu IP."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:413
+msgid "Approved proxy IP ranges"
+msgstr "Zatwierdzone zakresy IP proxy"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:414
+msgid "One entry per line: a single IP, a CIDR range (203.0.113.0/24) or an IPv4 wildcard (203.0.113.*). A header above is read only when the connecting address matches one of these. Providers rotate their networks, so take the current list from your own provider and keep it current — cloudipdb.io/providers collects the published lists in one place, but the provider is the authority."
+msgstr "Jeden wpis w wierszu: pojedynczy adres IP, zakres CIDR (203.0.113.0/24) lub symbol wieloznaczny IPv4 (203.0.113.*). Powyższy nagłówek jest odczytywany tylko wtedy, gdy adres łączący pasuje do jednego z nich. Dostawcy zmieniają sieci, dlatego aktualizuj listę od swojego dostawcy — cloudipdb.io/providers gromadzi listy, lecz dostawca jest autorytetem."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:439
+msgid "Leave the masked value untouched to keep the stored key. Clear the field to remove it."
+msgstr "Nie ruszaj zamaskowanej wartości, aby zachować zapisany klucz. Wyczyść pole, aby go usunąć."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:469
+msgid "Shop base currency"
+msgstr "Waluta bazowa sklepu"
+
+#: src/Modules/DiagnosticLog/Enums/LogChannelEnum.php:29
+msgid "Cache"
+msgstr "Pamięć podręczna"
+
+#: src/Modules/DiagnosticLog/Enums/LogChannelEnum.php:31
+msgid "Service"
+msgstr "Usługa"
+
+#: src/Modules/DiagnosticLog/Enums/LogChannelEnum.php:32
+msgid "Audit"
+msgstr "Audyt"
+
+#: src/Modules/DiagnosticLog/Models/LogDateRange.php:51
+msgid "The start date must be a real calendar date written as YYYY-MM-DD."
+msgstr "Data początkowa musi być prawdziwą datą kalendarzową zapisaną jako YYYY-MM-DD."
+
+#: src/Modules/DiagnosticLog/Models/LogDateRange.php:60
+msgid "The end date must be a real calendar date written as YYYY-MM-DD."
+msgstr "Data końcowa musi być prawdziwą datą kalendarzową zapisaną jako YYYY-MM-DD."
+
+#: src/Modules/DiagnosticLog/Models/LogDateRange.php:67
+msgid "The start date must not be later than the end date."
+msgstr "Data początkowa nie może być późniejsza niż data końcowa."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:65
+msgid "CDN Header"
+msgstr "Nagłówek CDN"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:69
+msgid "Country resolved by a trusted CDN edge. Requires an enabled CDN vendor."
+msgstr "Kraj ustalony przez zaufany węzeł CDN. Wymaga włączonego dostawcy CDN."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:72
+msgid "MaxMind"
+msgstr "MaxMind"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:76
+msgid "Local MaxMind database managed by the WooCommerce integration."
+msgstr "Lokalna baza MaxMind zarządzana przez integrację WooCommerce."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:79
+msgid "WooCommerce Geolocation"
+msgstr "Geolokalizacja WooCommerce"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:83
+msgid "The geolocation stack WooCommerce is already configured with."
+msgstr "Geolokalizacja, którą WooCommerce ma już skonfigurowaną."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:86
+msgid "GeoJS.io"
+msgstr "GeoJS.io"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:90
+msgid "Free keyless country lookup service."
+msgstr "Darmowa usługa sprawdzania kraju, bez klucza."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:93
+msgid "IP-API.com"
+msgstr "IP-API.com"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:97
+msgid "Free keyless country lookup service, rate limited. Warning: queries travel over plain HTTP — anyone on the network path can read the visitor IP and alter the answer. Prefer an HTTPS provider when possible."
+msgstr "Darmowa usługa sprawdzania kraju, bez klucza i z limitem zapytań. Uwaga: zapytania idą nieszyfrowanym HTTP — każdy na drodze sieciowej może odczytać IP odwiedzającego i zmienić odpowiedź. Gdy to możliwe, wybierz dostawcę z HTTPS."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:100
+msgid "IP2Location.io"
+msgstr "IP2Location.io"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:104
+msgid "Commercial lookup service, requires an API key."
+msgstr "Komercyjna usługa sprawdzania, wymaga klucza API."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:107
+msgid "IPInfo.io"
+msgstr "IPInfo.io"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:111
+msgid "Commercial lookup service, requires an access token."
+msgstr "Komercyjna usługa sprawdzania, wymaga tokenu dostępu."
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:114
+msgid "IPStack.com"
+msgstr "IPStack.com"
+
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:118
+msgid "Commercial lookup service, requires an access key."
+msgstr "Komercyjna usługa sprawdzania, wymaga klucza dostępu."
+
+#: src/Modules/PricingEngine/CategoryPricing/CategoryPricingRepository.php:95
+msgid "A term ID and a country code are required to save a category rule."
+msgstr "Do zapisania reguły kategorii potrzebne są identyfikator terminu i kod kraju."
+
+#: src/Modules/PricingEngine/CountryCurrency/CountryCurrencyRepository.php:84
+msgid "A country code is required to save a currency mapping."
+msgstr "Do zapisania przypisania waluty potrzebny jest kod kraju."
+
+#: src/Modules/PricingEngine/CountryCurrency/CountryCurrencyService.php:221
+msgid "A valid country code is required to reset a currency mapping."
+msgstr "Do przywrócenia przypisania waluty potrzebny jest prawidłowy kod kraju."
+
+#: src/Modules/PricingEngine/CountryCurrency/CountryCurrencyService.php:230
+msgid "No native currency is known for this country."
+msgstr "Dla tego kraju nie jest znana żadna waluta kraju."
+
+#: src/Modules/PricingEngine/CountryGroup/CountryGroupRepository.php:75
+#: src/Modules/PricingEngine/CountryGroup/CountryGroupRepository.php:120
+#: src/Modules/PricingEngine/CountryGroup/CountryGroupRepository.php:140
+msgid "A slug is required to save a country group."
+msgstr "Do zapisania grupy krajów potrzebny jest slug."
+
+#: src/Modules/PricingEngine/CountryGroup/CountryGroupRepository.php:109
+msgid "A group id is required to update a country group."
+msgstr "Do zaktualizowania grupy krajów potrzebny jest identyfikator grupy."
+
+#: src/Modules/PricingEngine/CountryGroup/CountryGroupRepository.php:159
+msgid "A free slug could not be derived from this group name."
+msgstr "Z tej nazwy grupy nie udało się utworzyć wolnego sluga."
+
+#: src/Modules/PricingEngine/CountryPricing/CountryPricingRepository.php:169
+msgid "A product ID and a country code are required to save a pricing rule."
+msgstr "Do zapisania reguły ceny potrzebne są identyfikator produktu i kod kraju."
+
+#: src/Modules/WooCommerce/Services/CartIdentityService.php:171
+msgid "Your location changed, so the prices in your cart have been updated to your local currency."
+msgstr "Twoja lokalizacja się zmieniła, dlatego ceny w koszyku zostały zaktualizowane do Twojej lokalnej waluty."
+
+#: src/Modules/WooCommerce/Services/CartIdentityService.php:172
+msgid "Exchange rates have been updated, so the prices in your cart have been refreshed."
+msgstr "Kursy wymiany zostały zaktualizowane, dlatego ceny w koszyku zostały odświeżone."
+
+#: src/Modules/WooCommerce/Services/OrderPricingDisplay.php:111
+msgid "Original Total"
+msgstr "Kwota pierwotna"
+
+#: src/Modules/WooCommerce/Services/OrderPricingDisplay.php:180
+msgid "Original Price"
+msgstr "Cena pierwotna"
+
+#. translators: %s: currency code, for example USD.
+#: src/Modules/WooCommerce/Services/OrderPricingDisplay.php:240
+#, php-format
+msgid "Original Total (%s)"
+msgstr "Kwota pierwotna (%s)"
+
+#: src/Modules/WooCommerce/Services/OrderPricingDisplay.php:249
+msgid "Exchange Rate"
+msgstr "Kurs wymiany"
+
+#: src/Modules/AdminPortal/Controllers/CountryCurrencyController.php:786
+msgid "An exchange rate has to be greater than zero, below 100000000, and carry no more than twelve decimal places."
+msgstr "Kurs wymiany musi być większy od zera, mniejszy niż 100000000 i mieć nie więcej niż dwanaście miejsc po przecinku."
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:116
+msgid "Countries listed here override every category and global rule. Set a price, or leave the price empty and set a rate to derive it. With both left empty the base price is converted into the row's currency at the stored exchange rate."
+msgstr "Kraje wymienione tutaj mają pierwszeństwo przed każdą regułą kategorii i regułą globalną. Ustaw cenę albo pozostaw cenę pustą i ustaw kurs, z którego zostanie wyliczona. Gdy oba pola pozostaną puste, cena bazowa zostanie przeliczona na walutę wiersza po zapisanym kursie wymiany."
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:150
+msgid "Fixed regular price for this country. Leave the price and the rate empty to convert the base price automatically."
+msgstr "Stała cena regularna dla tego kraju. Pozostaw cenę i kurs puste, aby cena bazowa była przeliczana automatycznie."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:549
+#, php-format
+msgid "Localized Price Manager could not save the price rule for %s."
+msgid_plural "Localized Price Manager could not save the price rules for %s."
+msgstr[0] "Localized Price Manager nie mógł zapisać reguły ceny dla %s."
+msgstr[1] "Localized Price Manager nie mógł zapisać reguł ceny dla %s."
+msgstr[2] "Localized Price Manager nie mógł zapisać reguł ceny dla %s."
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:579
+msgid "The rule already stored for it was kept, except that any local sale price it carried was cleared, because the product is no longer on sale."
+msgid_plural "The rules already stored for them were kept, except that any local sale prices they carried were cleared, because the product is no longer on sale."
+msgstr[0] "Reguła już zapisana dla tego kraju została zachowana, z tym że usunięto z niej lokalną cenę promocyjną, ponieważ produkt nie jest już w promocji."
+msgstr[1] "Reguły już zapisane dla tych krajów zostały zachowane, z tym że usunięto z nich lokalne ceny promocyjne, ponieważ produkt nie jest już w promocji."
+msgstr[2] "Reguły już zapisane dla tych krajów zostały zachowane, z tym że usunięto z nich lokalne ceny promocyjne, ponieważ produkt nie jest już w promocji."
+
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:587
+msgid "The rule already stored for it was kept unchanged."
+msgid_plural "The rules already stored for them were kept unchanged."
+msgstr[0] "Reguła już zapisana dla tego kraju pozostała bez zmian."
+msgstr[1] "Reguły już zapisane dla tych krajów pozostały bez zmian."
+msgstr[2] "Reguły już zapisane dla tych krajów pozostały bez zmian."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:605
+#, php-format
+msgid "Localized Price Manager did not save the price rule for %s: a rule may carry a local price or an exchange rate, not both."
+msgid_plural "Localized Price Manager did not save the price rules for %s: a rule may carry a local price or an exchange rate, not both."
+msgstr[0] "Localized Price Manager nie zapisał reguły ceny dla %s: reguła może zawierać cenę lokalną albo kurs wymiany, ale nie oba naraz."
+msgstr[1] "Localized Price Manager nie zapisał reguł ceny dla %s: reguła może zawierać cenę lokalną albo kurs wymiany, ale nie oba naraz."
+msgstr[2] "Localized Price Manager nie zapisał reguł ceny dla %s: reguła może zawierać cenę lokalną albo kurs wymiany, ale nie oba naraz."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:615
+#, php-format
+msgid "Localized Price Manager did not save the price rule for %s: a local price needs the product to have a regular price."
+msgid_plural "Localized Price Manager did not save the price rules for %s: a local price needs the product to have a regular price."
+msgstr[0] "Localized Price Manager nie zapisał reguły ceny dla %s: cena lokalna wymaga, aby produkt miał cenę regularną."
+msgstr[1] "Localized Price Manager nie zapisał reguł ceny dla %s: cena lokalna wymaga, aby produkt miał cenę regularną."
+msgstr[2] "Localized Price Manager nie zapisał reguł ceny dla %s: cena lokalna wymaga, aby produkt miał cenę regularną."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:625
+#, php-format
+msgid "Localized Price Manager did not save the price rule for %s: a local sale price needs a local regular price too."
+msgid_plural "Localized Price Manager did not save the price rules for %s: a local sale price needs a local regular price too."
+msgstr[0] "Localized Price Manager nie zapisał reguły ceny dla %s: lokalna cena promocyjna wymaga także lokalnej ceny regularnej."
+msgstr[1] "Localized Price Manager nie zapisał reguł ceny dla %s: lokalna cena promocyjna wymaga także lokalnej ceny regularnej."
+msgstr[2] "Localized Price Manager nie zapisał reguł ceny dla %s: lokalna cena promocyjna wymaga także lokalnej ceny regularnej."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:635
+#, php-format
+msgid "Localized Price Manager did not save the price rule for %s: the product is on sale, so a local price needs a local sale price too."
+msgid_plural "Localized Price Manager did not save the price rules for %s: the product is on sale, so a local price needs a local sale price too."
+msgstr[0] "Localized Price Manager nie zapisał reguły ceny dla %s: produkt jest w promocji, więc cena lokalna wymaga także lokalnej ceny promocyjnej."
+msgstr[1] "Localized Price Manager nie zapisał reguł ceny dla %s: produkt jest w promocji, więc cena lokalna wymaga także lokalnej ceny promocyjnej."
+msgstr[2] "Localized Price Manager nie zapisał reguł ceny dla %s: produkt jest w promocji, więc cena lokalna wymaga także lokalnej ceny promocyjnej."
+
+#. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:644
+#, php-format
+msgid "Localized Price Manager did not save the price rule for %s: a price, sale price or rate was negative, too large, or had more decimal places than the currency allows, or the currency was not one WooCommerce knows."
+msgid_plural "Localized Price Manager did not save the price rules for %s: a price, sale price or rate was negative, too large, or had more decimal places than the currency allows, or the currency was not one WooCommerce knows."
+msgstr[0] "Localized Price Manager nie zapisał reguły ceny dla %s: któraś z wartości (cena, cena promocyjna lub kurs) była ujemna lub zbyt duża, miała więcej miejsc po przecinku, niż dopuszcza waluta, albo waluta nie była znana WooCommerce."
+msgstr[1] "Localized Price Manager nie zapisał reguł ceny dla %s: któraś z wartości (cena, cena promocyjna lub kurs) była ujemna lub zbyt duża, miała więcej miejsc po przecinku, niż dopuszcza waluta, albo waluta nie była znana WooCommerce."
+msgstr[2] "Localized Price Manager nie zapisał reguł ceny dla %s: któraś z wartości (cena, cena promocyjna lub kurs) była ujemna lub zbyt duża, miała więcej miejsc po przecinku, niż dopuszcza waluta, albo waluta nie była znana WooCommerce."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:95
+msgid "A country belongs to at most one group. When the group sets its own currency or rate, it prices every country in it instead of the country's own automatic conversion; product and category rules still come first. A group that sets neither leaves its countries to their own currency."
+msgstr "Kraj należy co najwyżej do jednej grupy. Gdy grupa ustala własną walutę lub kurs, ustala cenę dla każdego należącego do niej kraju zamiast automatycznego przeliczenia danego kraju; reguły produktu i kategorii nadal mają pierwszeństwo. Grupa, która nie ustala żadnego z nich, pozostawia swoje kraje przy ich własnej walucie."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:106
+msgid "When a country has no product or category rule, a group with its own rate or currency prices it ahead of the country's automatic conversion: a rate set here multiplies the store base price directly instead of using the fetched exchange rate. Leave it empty to convert into the group currency at the current rate."
+msgstr "Gdy kraj nie ma reguły produktu ani kategorii, grupa z własnym kursem lub walutą ustala jego cenę przed automatycznym przeliczeniem kraju: kurs ustawiony tutaj mnoży bezpośrednio cenę bazową sklepu zamiast korzystać z pobranego kursu wymiany. Pozostaw puste, aby przeliczać na walutę grupy po bieżącym kursie."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:168
+msgid "The currency every country in this group is priced in, instead of the country's own currency. Leave it empty to keep each country's own currency."
+msgstr "Waluta, w której ustalana jest cena dla każdego kraju w tej grupie, zamiast własnej waluty kraju. Pozostaw puste, aby każdy kraj zachował własną walutę."
+
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:175
+msgid "A rate set here multiplies the store base price directly instead of using the fetched exchange rate, for every country in the group. Leave it empty to convert into the group currency at the current rate."
+msgstr "Kurs ustawiony tutaj mnoży bezpośrednio cenę bazową sklepu zamiast korzystać z pobranego kursu wymiany, dla każdego kraju w grupie. Pozostaw puste, aby przeliczać na walutę grupy po bieżącym kursie."
+
+#: src/Modules/AdminPortal/Pages/GeolocationProviderNotice.php:55
+msgid "Localized Price Manager: localized prices will not work until at least one geolocation provider is enabled."
+msgstr "Localized Price Manager: zlokalizowane ceny nie będą działać, dopóki nie zostanie włączony co najmniej jeden dostawca geolokalizacji."
+
+#: src/Modules/AdminPortal/Pages/GeolocationProviderNotice.php:57
+msgid "Open the Geolocation settings"
+msgstr "Otwórz ustawienia Geolokalizacji"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:256
+msgid "Leave this off unless you mean it. While it is on, deleting the plugin permanently removes its database tables (every per-country and per-category price rule, country currency mapping, country group, stored exchange rate and database log record), these settings, its transients and cache entries, its log files in the WooCommerce log folder and the country stored on each customer profile. Order meta written at checkout is kept. The plugin's scheduled tasks are removed on uninstall whether this is on or off. It cannot be undone, and deactivating the plugin does not trigger it."
+msgstr "Pozostaw tę opcję wyłączoną, chyba że naprawdę tego chcesz. Gdy jest włączona, usunięcie wtyczki trwale usuwa jej tabele bazy danych (każdą regułę ceny dla kraju i kategorii, każde przypisanie waluty kraju, każdą grupę krajów, każdy zapisany kurs wymiany i każdy wpis dziennika w bazie danych), te ustawienia, jej dane przejściowe (transients) i wpisy pamięci podręcznej, jej pliki dziennika w folderze dzienników WooCommerce oraz kraj zapisany w profilu każdego klienta. Metadane zamówień zapisane przy finalizacji zamówienia zostają zachowane. Zaplanowane zadania wtyczki są usuwane przy odinstalowaniu niezależnie od tego, czy ta opcja jest włączona. Tej operacji nie można cofnąć, a dezaktywacja wtyczki jej nie uruchamia."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:346
+msgid "Checked providers form the detection chain, tried in the order shown. With no provider checked, no visitor country is detected and prices are not localized for visitors who need IP detection."
+msgstr "Zaznaczeni dostawcy tworzą łańcuch wykrywania i są próbowani w pokazanej kolejności. Gdy żaden dostawca nie jest zaznaczony, kraj odwiedzającego nie jest wykrywany, a ceny nie są lokalizowane dla odwiedzających, którzy wymagają wykrywania po IP."
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:73
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:88
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:230
+msgid "Localized Price Manager diagnostic log"
+msgstr "Dziennik diagnostyczny Localized Price Manager"
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:152
+msgid "The diagnostic log entries could not be anonymized."
+msgstr "Nie udało się zanonimizować wpisów dziennika diagnostycznego."
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:178
+msgid "To show prices in the currency of your country, this store determines your country from your IP address. Your IP address is sent to the geolocation services enabled in the plugin settings, which return the country it belongs to."
+msgstr "Aby pokazywać ceny w walucie Twojego kraju, ten sklep ustala Twój kraj na podstawie Twojego adresu IP. Twój adres IP jest wysyłany do usług geolokalizacji włączonych w ustawieniach wtyczki, które zwracają kraj, do którego należy."
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:179
+msgid "When the WooCommerce geolocation service is enabled and the store has no local MaxMind geolocation database, WooCommerce itself may send your IP address to an external geolocation service to look up its country, and keeps the answer for a while in a temporary cache entry named after your IP address. This is WooCommerce's own behaviour, which the plugin does not change."
+msgstr "Gdy usługa geolokalizacji WooCommerce jest włączona, a sklep nie ma lokalnej bazy geolokalizacji MaxMind, samo WooCommerce może wysłać Twój adres IP do zewnętrznej usługi geolokalizacji, aby ustalić jego kraj, i przechowuje odpowiedź przez pewien czas w tymczasowym wpisie pamięci podręcznej nazwanym od Twojego adresu IP. Jest to własne działanie WooCommerce, którego wtyczka nie zmienia."
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:180
+msgid "The detected country is stored in your WooCommerce session while you browse as a guest, and in your user profile when you are logged in, together with the time it was last checked."
+msgstr "Wykryty kraj jest zapisywany w Twojej sesji WooCommerce, gdy przeglądasz sklep jako gość, oraz w Twoim profilu użytkownika, gdy jesteś zalogowany, razem z czasem ostatniego sprawdzenia."
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:181
+msgid "The plugin keeps a diagnostic log. Its entries may record your user ID, your username and your IP address. The IP address is stored in full on audit entries and on entries of warning severity or above, and with its last part removed on the other entries. While the site runs in debug mode, the IP address is stored in full on every entry."
+msgstr "Wtyczka prowadzi dziennik diagnostyczny. Jego wpisy mogą zawierać Twój identyfikator użytkownika, Twoją nazwę użytkownika i Twój adres IP. Adres IP jest zapisywany w całości we wpisach audytu i we wpisach o ważności ostrzeżenie lub wyższej, a w pozostałych wpisach bez ostatniej części. Gdy witryna działa w trybie debugowania, adres IP jest zapisywany w całości w każdym wpisie."
+
+#. translators: %d: number of days log entries are kept.
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:184
+#, php-format
+msgid "Diagnostic log entries are deleted automatically after %d day, as set by the log retention setting."
+msgid_plural "Diagnostic log entries are deleted automatically after %d days, as set by the log retention setting."
+msgstr[0] "Wpisy dziennika diagnostycznego są usuwane automatycznie po %d dniu, zgodnie z ustawieniem czasu przechowywania dziennika."
+msgstr[1] "Wpisy dziennika diagnostycznego są usuwane automatycznie po %d dniach, zgodnie z ustawieniem czasu przechowywania dziennika."
+msgstr[2] "Wpisy dziennika diagnostycznego są usuwane automatycznie po %d dniach, zgodnie z ustawieniem czasu przechowywania dziennika."
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:208
+msgid "Date (UTC)"
+msgstr "Data (UTC)"
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:210
+msgid "Severity"
+msgstr "Ważność"
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:213
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:231
+msgid "Diagnostic log entries recorded while you were logged in."
+msgstr "Wpisy dziennika diagnostycznego zapisane, gdy byłeś zalogowany."
+
+#: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:64
+#: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:79
+msgid "Localized Price Manager customer country"
+msgstr "Kraj klienta Localized Price Manager"
+
+#: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:109
+msgid "Detected country"
+msgstr "Wykryty kraj"
+
+#: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:116
+msgid "Country last checked (UTC)"
+msgstr "Ostatnie sprawdzenie kraju (UTC)"
+
+#: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:133
+msgid "The country detected from your IP address to show prices in your currency."
+msgstr "Kraj wykryty na podstawie Twojego adresu IP, aby pokazywać ceny w Twojej walucie."
+
+#: src/Modules/WooCommerce/Services/CartPricingService.php:171
+msgid "This product is sold in a different currency from the products already in your cart. Complete your purchase or empty your cart before adding it."
+msgstr "Ten produkt jest sprzedawany w innej walucie niż produkty, które są już w Twoim koszyku. Dokończ zakup lub opróżnij koszyk, zanim go dodasz."
+
+#: src/Core/Enums/RoundingModeEnum.php:40
+msgid "Standard rounding"
+msgstr "Zaokrąglanie standardowe"
+
+#: src/Modules/AdminPortal/Pages/ExchangeRateProviderNotice.php:55
+msgid "Localized Price Manager: exchange rates are not refreshed until at least one exchange rate provider is ticked. Converted prices use the rates already stored."
+msgstr "Localized Price Manager: kursy wymiany nie będą odświeżane, dopóki nie zostanie zaznaczony co najmniej jeden dostawca kursów wymiany. Przeliczone ceny korzystają z już zapisanych kursów."
+
+#: src/Modules/AdminPortal/Pages/ExchangeRateProviderNotice.php:57
+msgid "Open the Rate Settings"
+msgstr "Otwórz Ustawienia kursów"
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:285
+msgid "Tried first when it is also checked under Active providers below. A preferred provider that is not checked is never used."
+msgstr "Próbowany jako pierwszy, gdy jest też zaznaczony poniżej w sekcji Włączeni dostawcy. Preferowany dostawca, który nie jest zaznaczony, nigdy nie jest używany."
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:295
+msgid "Only the checked providers are tried, in the order shown, with the preferred provider moved to the front when it is checked. Unchecked providers are never used. With no provider checked, no exchange rate is fetched at all; converted prices keep using the rates already stored."
+msgstr "Próbowani są tylko zaznaczeni dostawcy, w pokazanej kolejności, przy czym dostawca preferowany jest przenoszony na początek, gdy jest zaznaczony. Niezaznaczeni dostawcy nigdy nie są używani. Gdy żaden dostawca nie jest zaznaczony, żaden kurs wymiany nie jest pobierany; przeliczone ceny nadal korzystają z już zapisanych kursów."

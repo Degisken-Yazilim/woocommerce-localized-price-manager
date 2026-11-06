@@ -1,0 +1,175 @@
+@use "variables" as *;
+
+[dir="rtl"] {
+	.lpm-header-logo {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	.lpm-alert {
+		right: initial;
+		left: 0;
+		transform: translate(10%, 0) scale(0.9);
+
+		&.is-visible {
+			transform: translate(10%, -15%) scale(1);
+		}
+
+		&-close {
+			right: initial;
+			left: 0;
+		}
+	}
+
+	.lpm-dt-sortable {
+		&::after {
+			margin-right: 4px;
+			margin-left: 0;
+		}
+	}
+
+	.lpm-input {
+		padding-right: 2.5rem;
+		padding-left: $input-padding;
+	}
+
+	.lpm-input-icon-left {
+		right: 0.75rem;
+		left: initial;
+	}
+
+	.lpm-input-icon-right {
+		right: initial;
+		left: 0.75rem;
+	}
+
+	.lpm-input-group .lpm-input:not(:last-child) {
+		border-radius: 0 $input-border-radius $input-border-radius 0;
+	}
+
+	.lpm-input-group-prepend .lpm-input-group-text {
+		border-right: 1px solid var(--lpm-input-border);
+		border-left: 0;
+		border-radius: 0 $input-border-radius $input-border-radius 0;
+	}
+
+	.lpm-input-group-append .lpm-input-group-text {
+		border-right: 0;
+		border-left: 1px solid var(--lpm-input-border);
+		border-radius: $input-border-radius 0 0 $input-border-radius;
+	}
+
+	.lpm-input-group-prepend + .lpm-input {
+		border-radius: $input-border-radius 0 0 $input-border-radius;
+	}
+
+	.lpm-input-group .lpm-input + .lpm-input-group-append {
+		margin-right: -1px;
+		margin-left: 0;
+	}
+
+	.lpm-select {
+		padding-right: $input-padding !important;
+		padding-left: 2.5rem !important;
+		background: var(--lpm-input-bg) var(--lpm-select-arrow) no-repeat left
+			0.75rem center / 16px 12px !important;
+
+		&[multiple] {
+			padding-left: 0.75rem;
+			background-image: none;
+		}
+	}
+
+	.lpm-checkbox input[type="checkbox"],
+	.lpm-radio input[type="radio"] {
+		margin-right: 0;
+		margin-left: $spacing-sm;
+	}
+
+	.lpm-file-upload-input::before {
+		margin-right: 0;
+		margin-left: $spacing-sm;
+	}
+
+	.lpm-btn-group {
+		> .lpm-btn:not(:last-child) {
+			border-top-right-radius: $btn-border-radius;
+			border-bottom-right-radius: $btn-border-radius;
+		}
+
+		> .lpm-btn:not(:first-child) {
+			margin-right: -1px;
+			margin-left: 0;
+			border-top-left-radius: $btn-border-radius;
+			border-bottom-left-radius: $btn-border-radius;
+		}
+	}
+
+	.lpm-switch-slider::before {
+		right: $switch-thumb-offset;
+		left: initial;
+	}
+
+	.lpm-switch input:checked + .lpm-switch-slider::before {
+		transform: translateX(-$switch-thumb-translate);
+	}
+
+	.lpm-text-left {
+		text-align: right;
+	}
+
+	.lpm-text-right {
+		text-align: left;
+	}
+
+	@each $key, $value in $spacers {
+		.lpm-ml-#{$key} {
+			margin-right: $value;
+			margin-left: 0;
+		}
+
+		.lpm-mr-#{$key} {
+			margin-right: 0;
+			margin-left: $value;
+		}
+
+		.lpm-pl-#{$key} {
+			padding-right: $value;
+			padding-left: 0;
+		}
+
+		.lpm-pr-#{$key} {
+			padding-right: 0;
+			padding-left: $value;
+		}
+	}
+
+	.lpm-justify-start {
+		justify-content: flex-end;
+	}
+
+	.lpm-justify-end {
+		justify-content: flex-start;
+	}
+
+	.lpm-align-start {
+		align-items: flex-end;
+	}
+
+	.lpm-align-end {
+		align-items: flex-start;
+	}
+
+	.lpm-place-start {
+		place-items: end;
+	}
+
+	.lpm-place-end {
+		place-items: start;
+	}
+
+	.lpm-geo-row-header {
+		padding-right: 0;
+		padding-left: $spacing-sm;
+	}
+}

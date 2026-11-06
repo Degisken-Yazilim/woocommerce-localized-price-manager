@@ -1,0 +1,106 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-dt-toolbar-cell {
+	padding: $dt-toolbar-padding !important;
+}
+
+.lpm-dt-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $dt-toolbar-gap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.lpm-dt-toolbar-left,
+.lpm-dt-toolbar-right {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $dt-toolbar-gap;
+	align-items: center;
+}
+
+.lpm-dt-toolbar-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $dt-toolbar-gap;
+	align-items: center;
+	width: 100%;
+}
+
+.lpm-dt-filter {
+	white-space: nowrap;
+}
+
+.lpm-dt-search {
+	min-width: $dt-search-min-width;
+}
+
+.lpm-dt-per-page {
+	white-space: nowrap;
+}
+
+.lpm-dt-info {
+	font-size: $dt-info-font-size;
+	color: var(--lpm-dt-info-color);
+	white-space: nowrap;
+}
+
+.lpm-dt-pagination {
+	margin: 0;
+}
+
+.lpm-dt-state-row td {
+	padding: $dt-state-padding;
+	color: var(--lpm-dt-state-color);
+	text-align: center;
+}
+
+.lpm-dt-error-row td {
+	padding: $dt-error-padding;
+	color: var(--lpm-dt-error-color);
+	text-align: center;
+	background-color: var(--lpm-dt-error-bg);
+}
+
+.lpm-dt-sortable {
+	cursor: pointer;
+	user-select: none;
+
+	&::after {
+		margin-left: 4px;
+		font-size: $font-size-min;
+		content: "▲▼";
+		opacity: 0.3;
+	}
+
+	&.lpm-dt-sort-asc::after {
+		content: "▲";
+		opacity: 1;
+	}
+
+	&.lpm-dt-sort-desc::after {
+		content: "▼";
+		opacity: 1;
+	}
+}
+
+.lpm-dt-table-wrapper {
+	position: relative;
+}
+
+.lpm-dt-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	display: none;
+	background: rgba(255, 255, 255, 0.75);
+	border-radius: 4px;
+
+	&.is-visible {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

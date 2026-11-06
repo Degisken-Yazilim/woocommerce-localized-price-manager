@@ -1,0 +1,55 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-switch {
+	position: relative;
+	display: inline-block !important;
+	width: $switch-width;
+	height: $switch-height;
+
+	input {
+		width: 0;
+		height: 0;
+		opacity: 0;
+
+		&:checked + .lpm-switch-slider {
+			background-color: var(--lpm-switch-active);
+
+			&::before {
+				transform: translateX($switch-thumb-translate);
+			}
+		}
+
+		&:disabled + .lpm-switch-slider {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+	}
+}
+
+.woocommerce_options_panel label.lpm-switch {
+	float: none;
+	width: $switch-width;
+	margin: 0;
+}
+
+.lpm-switch-slider {
+	position: absolute;
+	inset: 0;
+	cursor: pointer;
+	background-color: var(--lpm-switch-inactive);
+	border-radius: $switch-height;
+	transition: $switch-transition;
+
+	&::before {
+		position: absolute;
+		bottom: $switch-thumb-offset;
+		left: $switch-thumb-offset;
+		width: $switch-thumb-size;
+		height: $switch-thumb-size;
+		content: "";
+		background-color: var(--lpm-switch-thumb);
+		border-radius: 50%;
+		transition: $switch-transition;
+	}
+}

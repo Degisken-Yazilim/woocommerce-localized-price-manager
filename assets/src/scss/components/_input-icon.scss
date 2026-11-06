@@ -1,0 +1,25 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-input-icon {
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	.lpm-input {
+		padding-left: 2.5rem;
+	}
+}
+
+.lpm-input-icon-left {
+	position: absolute;
+	left: 0.75rem;
+	color: var(--lpm-icon-color);
+	pointer-events: none;
+}
+
+.lpm-input-icon-right {
+	position: absolute;
+	right: 0.75rem;
+	color: var(--lpm-icon-color);
+}

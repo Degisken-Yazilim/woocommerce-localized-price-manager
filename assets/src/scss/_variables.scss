@@ -1,0 +1,203 @@
+@use "sass:map";
+@use "sass:math";
+
+$font-size-min: 0.75rem;
+$font-size-scale: 1.25;
+$font-size-base: $font-size-min * $font-size-scale * $font-size-scale;
+$font-size-xs: $font-size-min;
+$font-size-sm: math.div($font-size-base, $font-size-scale);
+$font-size-md: $font-size-base;
+$font-size-lg: $font-size-base * $font-size-scale;
+$font-size-xl: $font-size-base * math.pow($font-size-scale, 2);
+$font-size-2xl: $font-size-base * math.pow($font-size-scale, 3);
+$font-size-3xl: $font-size-base * math.pow($font-size-scale, 4);
+$h1-font-size: $font-size-3xl;
+$h2-font-size: $font-size-2xl;
+$h3-font-size: $font-size-xl;
+$h4-font-size: $font-size-lg;
+$h5-font-size: $font-size-md;
+$h6-font-size: $font-size-sm;
+$spacer: 0.25rem;
+$spacers: (
+	0: 0,
+	1: $spacer,
+	2: $spacer * 2,
+	3: $spacer * 3,
+	4: $spacer * 4,
+	5: $spacer * 5,
+	6: $spacer * 6,
+	7: $spacer * 7,
+	8: $spacer * 8,
+	10: $spacer * 10,
+	12: $spacer * 12,
+	16: $spacer * 16,
+	20: $spacer * 20,
+	24: $spacer * 24,
+);
+$spacing-xs: map.get($spacers, 1);
+$spacing-sm: map.get($spacers, 2);
+$spacing-md: map.get($spacers, 3);
+$spacing-lg: map.get($spacers, 4);
+$spacing-xl: map.get($spacers, 5);
+$spacing-2xl: map.get($spacers, 6);
+$container-padding: $spacing-xl;
+$container-margin: 25px;
+$container-radius: $spacing-xs;
+$grid-gap: $spacing-lg + $spacing-xs;
+$grid-padding: $spacing-xl $spacing-lg + $spacing-lg;
+$grid-columns: 12;
+$col-padding: 0 $spacing-lg + $spacing-xs;
+$row-padding: $spacing-xl;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1280px;
+$form-margin-bottom: $spacing-lg;
+$label-margin-bottom: $spacing-sm;
+$label-font-size: $font-size-sm;
+$input-padding: $spacing-sm $spacing-md;
+$input-padding-sm: $spacing-xs $spacing-sm;
+$input-padding-lg: $spacing-md $spacing-lg;
+$input-font-size: $font-size-sm;
+$input-font-size-sm: $font-size-xs;
+$input-font-size-lg: $font-size-lg + $spacing-xs;
+$input-line-height: 1.5;
+$input-border-radius: $spacing-xs;
+$input-height-sm: 1.5rem;
+$input-height-base: 2.25rem;
+$input-height-lg: 3rem;
+$valid-color: #1f7e34;
+$invalid-color: #c82333;
+$btn-padding: $spacing-sm $spacing-lg;
+$btn-padding-sm: $spacing-xs $spacing-sm;
+$btn-padding-lg: $spacing-md $spacing-lg + $spacing-sm;
+$btn-font-size: $font-size-md - $spacing-xs;
+$btn-font-size-sm: $font-size-xs;
+$btn-font-size-lg: $font-size-lg + $spacing-xs;
+$btn-line-height: 1.5;
+$btn-border-radius: $spacing-xs;
+$btn-transition:
+	color 0.15s ease-in-out,
+	background-color 0.15s ease-in-out,
+	border-color 0.15s ease-in-out,
+	box-shadow 0.15s ease-in-out;
+$btn-icon-size: 30px;
+$btn-icon-margin: 2px;
+$btn-icon-font-size: 18px;
+$table-cell-padding: $spacing-md;
+$table-font-size: $font-size-sm;
+$table-border-width: 1px;
+$table-header-bg: var(--lpm-table-header-bg);
+$table-stripe-bg: var(--lpm-table-stripe-bg);
+$pagination-padding: $spacing-sm * 0.5 $spacing-md;
+$pagination-font-size: $font-size-md - $spacing-xs;
+$pagination-gap: $spacing-sm;
+$pagination-margin: $spacing-lg;
+$loading-spinner-size: 50px;
+$loading-spinner-width: $spacing-md;
+$loading-min-height: 200px;
+$loading-text-margin-top: 80px;
+$alert-padding: $spacing-lg;
+$alert-title-padding: $spacing-md $spacing-lg;
+$alert-font-size: $font-size-md - $spacing-xs;
+$alert-title-font-size: $font-size-md;
+$alert-border-width: 4px;
+$alert-border-radius: 6px;
+$alert-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+$alert-z-index: 99999;
+$alert-width: 30vw;
+$alert-min-width: 25vw;
+$alert-max-width: 75vw;
+$modal-min-width: 360px;
+$modal-max-width: 480px;
+$modal-padding: $spacing-lg;
+$modal-header-padding: $spacing-lg $spacing-xl;
+$modal-z-index: 9999;
+$modal-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+$badge-padding: $spacing-xs $spacing-sm;
+$badge-font-size: $font-size-xs + $spacing-xs;
+$badge-font-weight: 600;
+$badge-border-radius: math.div($spacing-xs, 4);
+$switch-width: 50px;
+$switch-height: 24px;
+$switch-thumb-size: 18px;
+$switch-thumb-offset: 3px;
+$switch-transition: 0.4s;
+$switch-thumb-translate: 26px;
+$range-height: 1.5rem;
+$range-thumb-size: 1rem;
+$range-track-height: 0.5rem;
+$range-track-radius: 1rem;
+$dt-toolbar-padding: $spacing-sm $spacing-md;
+$dt-toolbar-gap: $spacing-md;
+$dt-search-min-width: 180px;
+$dt-info-font-size: $font-size-md - $spacing-xs;
+$dt-state-padding: $spacing-2xl;
+$dt-error-padding: $spacing-lg;
+$wp-admin-bar-height: 32px;
+$colors: (
+	"primary": (
+		main: #0055b8,
+		hover: #003d82,
+		border: #003d82,
+	),
+	"secondary": (
+		main: #555,
+		hover: #3a3a3a,
+		border: #3a3a3a,
+	),
+	"success": (
+		main: #1f7e34,
+		hover: #145b2e,
+		border: #145b2e,
+	),
+	"danger": (
+		main: #c82333,
+		hover: #a01e2a,
+		border: #a01e2a,
+	),
+	"warning": (
+		main: #cc7000,
+		hover: #995200,
+		border: #995200,
+	),
+	"info": (
+		main: #06c,
+		hover: #004d99,
+		border: #004d99,
+	),
+	"light": (
+		main: #f8f9fa,
+		hover: #e2e6ea,
+		border: #dae0e5,
+	),
+	"dark": (
+		main: #343a40,
+		hover: #23272b,
+		border: #1d2124,
+	),
+);
+$alert-themes: (
+	success: (
+		main: #1f7e34,
+		dark: #145b2e,
+		text: #fff,
+	),
+	error: (
+		main: #c82333,
+		dark: #a01e2a,
+		text: #fff,
+	),
+	info: (
+		main: #06c,
+		dark: #004d99,
+		text: #fff,
+	),
+);
+$spacers: (
+	0: 0,
+	1: 0.25rem,
+	2: 0.5rem,
+	3: 1rem,
+	4: 1.5rem,
+	5: 2rem,
+	6: 3rem,
+);

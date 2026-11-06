@@ -1,0 +1,282 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-form-group {
+	margin-bottom: $form-margin-bottom;
+
+	label {
+		display: block;
+		margin-bottom: $label-margin-bottom;
+		font-size: $label-font-size;
+		font-weight: 500;
+		color: var(--lpm-label-color);
+	}
+}
+
+.lpm-input,
+.lpm-textarea,
+.lpm-select {
+	width: 100%;
+	padding: $input-padding !important;
+	font-size: $input-font-size !important;
+	line-height: $input-line-height !important;
+	color: var(--lpm-input-color) !important;
+	background-color: var(--lpm-input-bg) !important;
+	background-clip: padding-box !important;
+	border: 1px solid var(--lpm-input-border) !important;
+	border-radius: $input-border-radius !important;
+
+	@include transition((border-color, box-shadow), 0.15s, ease-in-out);
+	@include form-control-focus;
+
+	&:disabled {
+		cursor: not-allowed !important;
+		background-color: var(--lpm-input-disabled-bg) !important;
+		opacity: 1 !important;
+	}
+
+	&::placeholder {
+		color: var(--lpm-input-placeholder);
+		opacity: 1;
+	}
+
+	&.is-valid {
+		@include form-control-validation($valid-color);
+	}
+
+	&.is-invalid {
+		@include form-control-validation($invalid-color);
+	}
+}
+
+.lpm-input-sm {
+	padding: $input-padding-sm !important;
+	font-size: $input-font-size-sm !important;
+}
+
+.lpm-input-lg {
+	padding: $input-padding-lg !important;
+	font-size: $input-font-size-lg !important;
+}
+
+.lpm-textarea {
+	min-height: 80px;
+	resize: vertical;
+
+	&.lpm-textarea-fixed {
+		resize: none;
+	}
+}
+
+.lpm-select {
+	min-width: 150px;
+	padding-right: 2.5rem !important;
+	appearance: none !important;
+	background: var(--lpm-input-bg) var(--lpm-select-arrow) no-repeat right
+		0.75rem center / 16px 12px !important;
+
+	&[multiple] {
+		padding-right: 0.75rem;
+		background-image: none;
+	}
+}
+
+.lpm-select-sm {
+	min-width: 0;
+	padding: $input-padding-sm !important;
+	padding-right: 1.75rem !important;
+	font-size: $input-font-size-sm !important;
+	background-position: right 0.4rem center !important;
+}
+
+.lpm-checkbox,
+.lpm-radio {
+	display: flex;
+	align-items: center;
+	margin-bottom: $spacing-sm;
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		width: $spacing-lg;
+		height: $spacing-lg;
+		margin-right: $spacing-sm;
+		cursor: pointer;
+
+		&:checked::before {
+			width: $spacing-sm;
+			height: $spacing-sm;
+			margin: 0.23rem;
+			line-height: $spacing-sm;
+		}
+	}
+
+	label {
+		margin-bottom: 0;
+		cursor: pointer;
+		user-select: none;
+	}
+}
+
+.lpm-input-group {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 100%;
+
+	.lpm-input {
+		position: relative;
+		flex: 1 1 auto;
+		width: 1%;
+		margin-bottom: 0;
+
+		&:not(:last-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+}
+
+.lpm-input-group-prepend,
+.lpm-input-group-append {
+	display: flex;
+}
+
+.lpm-input-group-text {
+	display: flex;
+	align-items: center;
+	padding: $input-padding;
+	font-size: $font-size-md - $spacing-xs;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--lpm-input-group-color);
+	text-align: center;
+	white-space: nowrap;
+	background-color: var(--lpm-input-group-bg);
+	border: 1px solid var(--lpm-input-border);
+}
+
+.lpm-input-group-prepend .lpm-input-group-text {
+	border-right: 0;
+	border-radius: $input-border-radius 0 0 $input-border-radius;
+}
+
+.lpm-input-group-append .lpm-input-group-text {
+	border-left: 0;
+	border-radius: 0 $input-border-radius $input-border-radius 0;
+}
+
+.lpm-input-group-prepend + .lpm-input {
+	border-radius: 0 $input-border-radius $input-border-radius 0;
+}
+
+.lpm-input-group .lpm-input + .lpm-input-group-append {
+	margin-left: -1px;
+}
+
+.lpm-file-upload {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+.lpm-file-upload-input {
+	width: 100%;
+	padding: $input-padding;
+	font-size: $font-size-md;
+	line-height: 1.5;
+	color: var(--lpm-input-color);
+	cursor: pointer;
+	background-color: var(--lpm-input-bg);
+	border: 1px solid var(--lpm-input-border);
+	border-radius: $input-border-radius;
+
+	&::-webkit-file-upload-button {
+		visibility: hidden;
+		width: 0;
+		padding: 0;
+	}
+
+	&::before {
+		display: inline-block;
+		padding: $spacing-sm * 1.5 $spacing-md;
+		margin-right: $spacing-sm;
+		font-size: $font-size-md;
+		font-weight: 500;
+		white-space: nowrap;
+		cursor: pointer;
+		outline: none;
+		content: attr(data-label);
+		background: var(--lpm-file-before-bg);
+		border: 1px solid var(--lpm-file-before-border);
+		border-radius: 3px;
+
+		@include transition(background-color, 0.2s, ease);
+	}
+
+	&:hover::before {
+		background: var(--lpm-file-before-hover-bg);
+	}
+}
+
+.lpm-valid-feedback {
+	display: block;
+	margin-top: $spacing-xs;
+	font-size: $input-font-size-sm;
+	color: $valid-color;
+}
+
+.lpm-invalid-feedback {
+	display: block;
+	margin-top: $spacing-xs;
+	font-size: $input-font-size-sm;
+	color: $invalid-color;
+}
+
+.lpm-form-text {
+	display: block;
+	margin-top: $spacing-xs;
+	font-size: $input-font-size-sm;
+	color: var(--lpm-form-text-color);
+}
+
+.lpm-form-row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -$spacing-xs;
+	margin-left: -$spacing-xs;
+	font-size: $font-size-md;
+
+	> [class*="lpm-col-"] {
+		padding-right: $spacing-xs;
+		padding-left: $spacing-xs;
+	}
+}
+
+.lpm-form-inline {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+
+	.lpm-form-group {
+		display: flex;
+		flex: 0 0 auto;
+		flex-flow: row wrap;
+		align-items: center;
+		margin-right: $spacing-lg;
+		margin-bottom: 0;
+	}
+
+	.lpm-input,
+	.lpm-select {
+		display: inline-block;
+		width: auto;
+		vertical-align: middle;
+	}
+
+	label {
+		margin-right: $spacing-sm;
+		margin-bottom: 0;
+	}
+}

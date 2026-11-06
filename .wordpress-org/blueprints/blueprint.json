@@ -1,0 +1,42 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/shop/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"permalink_structure": "/%postname%/"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "woocommerce"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "localized-price-manager"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\nrequire_once '/wordpress/wp-load.php';\nupdate_option( 'woocommerce_onboarding_profile', array( 'skipped' => true ) );\nupdate_option( 'woocommerce_task_list_hidden', 'yes' );\nupdate_option( 'woocommerce_task_list_complete', 'yes' );\n$product = new WC_Product_Simple();\n$product->set_name( 'Sample Product' );\n$product->set_status( 'publish' );\n$product->set_regular_price( '25' );\n$product->save();\n"
+		}
+	]
+}

@@ -1,0 +1,72 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-modal-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: $modal-z-index;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.lpm-modal {
+	width: 100%;
+	min-width: $modal-min-width;
+	max-width: $modal-max-width;
+	background: #fff;
+	border-radius: $container-radius;
+	box-shadow: $modal-shadow;
+
+	&-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: $modal-header-padding;
+		border-bottom: 1px solid #ddd;
+	}
+
+	&-title {
+		margin: 0;
+		font-size: $h4-font-size;
+		font-weight: 600;
+	}
+
+	&-close {
+		padding: 0;
+		font-size: $font-size-xl + $spacing-xs;
+		line-height: 1;
+		color: #666;
+		cursor: pointer;
+		background: none;
+		border: none;
+
+		@include transition(color, 0.2s, ease);
+
+		&:hover {
+			color: #000;
+		}
+	}
+
+	&-body {
+		padding: $modal-padding;
+	}
+}
+
+.lpm-form-group-switch {
+	display: flex;
+	gap: $spacing-sm;
+	align-items: center;
+}
+
+.lpm-modal-form-footer {
+	display: flex;
+	gap: $spacing-sm;
+	justify-content: flex-end;
+	margin-top: $spacing-lg;
+}
+
+.lpm-geo-row-header {
+	padding-left: 0;
+}

@@ -1,0 +1,62 @@
+@use "sass:color";
+@use "sass:map";
+@use "variables" as *;
+@use "mixins" as *;
+@use "light";
+@use "components/utilities";
+@use "components/layout";
+@use "components/pagination";
+@use "components/tables";
+@use "components/loading";
+@use "components/alert";
+@use "components/forms";
+@use "components/switch";
+@use "components/range";
+@use "components/buttons";
+@use "components/input-icon";
+@use "components/custom-controls";
+@use "components/datatable";
+@use "components/badge";
+@use "components/icon-buttons";
+@use "components/modal";
+@use "components/help-popover";
+@use "components/admin-portal";
+
+.lpm-log-modal-row {
+	display: flex;
+	gap: 12px;
+	padding: 8px 0;
+	border-bottom: 1px solid #f0f0f0;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.lpm-log-modal-label {
+	flex-shrink: 0;
+	min-width: 110px;
+	font-weight: 600;
+	color: #555;
+}
+
+.lpm-log-modal-value {
+	flex: 1;
+	word-break: break-all;
+}
+
+.lpm-log-modal-pre {
+	max-height: 220px;
+	padding: 8px 10px;
+	margin: 0;
+	overflow: auto;
+	font-size: $font-size-min;
+	word-break: break-all;
+	white-space: pre-wrap;
+	background: #f6f7f7;
+	border-radius: 4px;
+}
+
+.lpm-log-modal-user-id {
+	color: #888;
+}

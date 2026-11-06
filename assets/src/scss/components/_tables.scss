@@ -1,0 +1,103 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-table {
+	width: 100%;
+	margin-top: $spacing-lg;
+	border-collapse: collapse;
+
+	thead {
+		position: sticky;
+		top: $wp-admin-bar-height;
+		z-index: 2;
+	}
+
+	th,
+	td {
+		padding: $table-cell-padding;
+		font-size: $table-font-size;
+		vertical-align: middle;
+		text-align: center;
+		border: $table-border-width solid var(--lpm-input-border);
+	}
+
+	th {
+		font-weight: 600;
+		color: var(--lpm-label-color);
+		background-color: $table-header-bg;
+	}
+
+	tr:nth-child(even) {
+		background-color: $table-stripe-bg;
+	}
+
+	tbody tr td:first-child {
+		font-weight: 500;
+		color: var(--lpm-label-color);
+		text-align: center;
+	}
+
+	.lpm-remove-row {
+		font-size: $table-font-size;
+		color: map.get(map.get($colors, "danger"), "main");
+		cursor: pointer;
+
+		@include transition(color, 0.2s, ease);
+
+		&:hover {
+			color: color.adjust(
+				map.get(map.get($colors, "danger"), "main"),
+				$lightness: -10%
+			);
+		}
+	}
+
+	.is-invalid-row {
+		background-color: rgba(
+			map.get(map.get($colors, "danger"), "main"),
+			0.05
+		) !important;
+	}
+}
+
+.lpm-cc-actions {
+	min-width: 140px;
+	white-space: nowrap;
+}
+
+.lpm-bulk-actions {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+
+	.lpm-select {
+		width: auto;
+	}
+}
+
+.lpm-cc-edit-currency {
+	max-width: 240px;
+}
+
+.lpm-cc-edit-group {
+	max-width: 180px;
+}
+
+.lpm-cc-inactive {
+	.lpm-cc-country,
+	.lpm-cc-native,
+	.lpm-cc-format,
+	.lpm-cc-edit-currency,
+	.lpm-cc-edit-group,
+	.lpm-cc-actions {
+		opacity: 0.55;
+	}
+}
+
+.lpm-cc-active {
+	margin-right: 0.5rem;
+	vertical-align: middle;
+}

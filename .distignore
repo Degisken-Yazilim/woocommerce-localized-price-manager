@@ -1,0 +1,12 @@
+/.github
+/.wordpress-org
+/.distignore
+/.gitattributes
+/.gitignore
+/assets/src
+/package.json
+/pnpm-lock.yaml
+/pnpm-workspace.yaml
+/webpack.config.js
+/postcss.config.js
+/.babelrc

@@ -1,0 +1,178 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.lpm-hidden {
+	display: none !important;
+}
+
+.lpm-flex {
+	display: flex;
+}
+
+.lpm-flex-column {
+	flex-direction: column;
+}
+
+.lpm-flex-row {
+	flex-direction: row;
+}
+
+.lpm-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.lpm-flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+.lpm-justify-start {
+	justify-content: flex-start;
+}
+
+.lpm-justify-center {
+	justify-content: center;
+}
+
+.lpm-justify-end {
+	justify-content: flex-end;
+}
+
+.lpm-justify-between {
+	justify-content: space-between;
+}
+
+.lpm-justify-around {
+	justify-content: space-around;
+}
+
+.lpm-justify-evenly {
+	justify-content: space-evenly;
+}
+
+.lpm-align-start {
+	align-items: flex-start;
+}
+
+.lpm-align-center {
+	align-items: center;
+}
+
+.lpm-align-end {
+	align-items: flex-end;
+}
+
+.lpm-align-stretch {
+	align-items: stretch;
+}
+
+.lpm-align-baseline {
+	align-items: baseline;
+}
+
+@each $key, $value in $spacers {
+	.lpm-grid-gap-#{$key} {
+		gap: $value;
+	}
+}
+
+.lpm-place-center {
+	place-items: center;
+}
+
+.lpm-place-start {
+	place-items: start;
+}
+
+.lpm-place-end {
+	place-items: end;
+}
+
+.lpm-place-stretch {
+	place-items: stretch;
+}
+
+.lpm-text-left {
+	text-align: left;
+}
+
+.lpm-text-center {
+	text-align: center;
+}
+
+.lpm-text-right {
+	text-align: right;
+}
+
+.lpm-text-justify {
+	text-align: justify;
+}
+
+.lpm-d-none {
+	display: none !important;
+}
+
+.lpm-d-block {
+	display: block !important;
+}
+
+.lpm-d-inline {
+	display: inline !important;
+}
+
+.lpm-d-inline-block {
+	display: inline-block !important;
+}
+
+.lpm-d-flex {
+	display: flex !important;
+}
+
+.lpm-d-grid {
+	display: grid !important;
+}
+
+@each $key, $value in $spacers {
+	.lpm-m-#{$key} {
+		margin: $value;
+	}
+	.lpm-mt-#{$key} {
+		margin-top: $value;
+	}
+	.lpm-mb-#{$key} {
+		margin-bottom: $value;
+	}
+	.lpm-ml-#{$key} {
+		margin-left: $value;
+	}
+	.lpm-mr-#{$key} {
+		margin-right: $value;
+	}
+	.lpm-mx-#{$key} {
+		margin-inline: $value;
+	}
+	.lpm-my-#{$key} {
+		margin-block: $value;
+	}
+
+	.lpm-p-#{$key} {
+		padding: $value;
+	}
+	.lpm-pt-#{$key} {
+		padding-top: $value;
+	}
+	.lpm-pb-#{$key} {
+		padding-bottom: $value;
+	}
+	.lpm-pl-#{$key} {
+		padding-left: $value;
+	}
+	.lpm-pr-#{$key} {
+		padding-right: $value;
+	}
+	.lpm-px-#{$key} {
+		padding-inline: $value;
+	}
+	.lpm-py-#{$key} {
+		padding-block: $value;
+	}
+}
