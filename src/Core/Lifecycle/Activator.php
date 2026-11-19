@@ -20,9 +20,7 @@ use D6N\LPM\Modules\DiagnosticLog\DiagnosticLogModule;
 use D6N\LPM\Modules\DiagnosticLog\Services\LifecycleAuditLogger;
 use D6N\LPM\Modules\DiagnosticLog\Services\NullLogger;
 use D6N\LPM\Modules\ExchangeRates\ExchangeRatesModule;
-use D6N\LPM\Modules\ExchangeRates\Providers\ExchangeRateProviderRegistry;
 use D6N\LPM\Modules\ExchangeRates\Services\ExchangeRatesService;
-use D6N\LPM\Modules\Geolocation\GeolocationAdapterRegistry;
 use Throwable;
 
 defined( 'ABSPATH' ) || exit;
@@ -136,10 +134,10 @@ class Activator {
 			OptionsEnum::LogRetentionDays->value      => self::DEFAULT_LOG_RETENTION_DAYS,
 			OptionsEnum::DbLogEnabled->value          => 'yes',
 			OptionsEnum::FileLogEnabled->value        => 'no',
-			OptionsEnum::ExchangeRateProvider->value  => ExchangeRateProviderRegistry::DEFAULT_PROVIDER,
-			OptionsEnum::ExchangeRateProviders->value => array( ExchangeRateProviderRegistry::DEFAULT_PROVIDER ),
+			OptionsEnum::ExchangeRateProvider->value  => '',
+			OptionsEnum::ExchangeRateProviders->value => array(),
 			OptionsEnum::ExchangeRateFrequency->value => ExchangeFrequencyEnum::ThreeHours->value,
-			OptionsEnum::GeolocationProviders->value  => array( GeolocationAdapterRegistry::PROVIDER_WOOCOMMERCE ),
+			OptionsEnum::GeolocationProviders->value  => array(),
 			OptionsEnum::TrustedHeaders->value        => '',
 			OptionsEnum::TrustedCountryHeaders->value => '',
 			OptionsEnum::TrustedProxyRanges->value    => '',
@@ -360,6 +358,10 @@ class Activator {
 	 */
 	private function schedule_exchange_rates(): bool {
 		try {
+			if ( ! $this->get_rates_service()->has_providers() ) {
+				return true;
+			}
+
 			if ( $this->get_rates_service()->setup_scheduler() ) {
 				return true;
 			}

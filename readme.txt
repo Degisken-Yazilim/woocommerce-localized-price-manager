@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 8.2
 WC requires at least: 7.9
 WC tested up to: 11.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,8 +64,8 @@ The visitor's country comes from a chain of providers you tick and order: a coun
 
 1. Upload the plugin to `/wp-content/plugins/localized-price-manager/`, or install it through the Plugins screen.
 2. Activate it. WooCommerce must be installed and active. The database tables are created and every country is mapped to its national currency.
-3. Go to **WooCommerce → Localized Price → Geolocation**. A fresh install starts with **WooCommerce Geolocation** ticked; tick and order other providers if you want them. With no provider ticked, no visitor country is detected and prices are not localized, and an admin warning is shown.
-4. On **Rate Settings**, **Frankfurter** (no key needed) is ticked under **Active providers** on a fresh install; add other providers if you want them, then click **Update rates now** to fetch the first rates. With no provider ticked, no exchange rate is fetched, and an admin warning is shown.
+3. Go to **WooCommerce → Localized Price → Geolocation**. Tick and order the providers you want to use. To respect privacy and avoid unexpected external connections, no provider is enabled by default. While none is ticked, visitor country detection is paused, and an admin notice is shown.
+4. On **Rate Settings**, tick your preferred exchange-rate providers, then click **Update rates now** to fetch the first rates. No external provider is enabled by default. While none is ticked, rates are not fetched in the background, and an admin notice is shown.
 5. Optionally, edit a simple product and open its **Localized Prices** tab, or a product category, to add per-country rules.
 
 == Frequently Asked Questions ==

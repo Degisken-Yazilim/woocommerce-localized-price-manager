@@ -1,4 +1,9 @@
 == Changelog ==
 
+= 1.0.1 =
+* Fix: Disable exchange-rate and geolocation services by default on activation for explicit opt-in.
+* Fix: Use atomic Compare-And-Swap (CAS) migration lock release.
+* Docs: Update installation guide and external service documentation for review compliance.
+
 = 1.0.0 =
 * Initial release.

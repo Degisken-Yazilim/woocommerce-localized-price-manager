@@ -136,7 +136,7 @@ class ExchangeRatesService implements IHookable {
 	 * @return void
 	 */
 	public function ensure_scheduled(): void {
-		if ( ! Core::is_active() || false !== wp_next_scheduled( $this->get_cron_hook() ) ) {
+		if ( ! Core::is_active() || ! $this->has_providers() || false !== wp_next_scheduled( $this->get_cron_hook() ) ) {
 			return;
 		}
 
@@ -177,6 +177,10 @@ class ExchangeRatesService implements IHookable {
 	 * @return bool True when the event is scheduled.
 	 */
 	public function setup_scheduler(): bool {
+		if ( ! $this->has_providers() ) {
+			return false;
+		}
+
 		$frequency = Core::get_option(
 			OptionsEnum::ExchangeRateFrequency->value,
 			ExchangeFrequencyEnum::ThreeHours->value

@@ -6,7 +6,6 @@ namespace D6N\LPM\Core\Database;
 use D6N\LPM\Core\Contracts\ILogger;
 use D6N\LPM\Core\Contracts\IMigration;
 use D6N\LPM\Core\Database\Migrations\AbstractMigration;
-use D6N\LPM\Core\Enums\OptionsEnum;
 use ReflectionClass;
 use Throwable;
 
@@ -105,14 +104,12 @@ class MigrationRunner {
 	}
 
 	/**
-	 * Delete the execution lock row, whoever holds it.
+	 * Release the execution lock only while it still carries this process's stamp.
 	 *
 	 * @return void
 	 */
 	public function release_lock(): void {
-		delete_option( OptionsEnum::MigrationLock->value );
-
-		$this->lock_stamp = null;
+		$this->release_own_lock();
 	}
 
 	/**
