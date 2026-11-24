@@ -22,7 +22,6 @@ Used to detect a visitor's country when **Customer country source** is **IP geol
 A request sends the **visitor's IP address** and, for keyed providers, your API key. Private and local addresses are never sent. Each answer is cached for 24 hours; a guest's country is then kept in the WooCommerce session for 24 hours, a customer's on their profile for 12 hours.
 
 - **GeoJS** (`get.geojs.io`) — no key. [Service](https://www.geojs.io/) · [Terms of use](https://www.geojs.io/tos/) · [Privacy policy](https://www.geojs.io/privacy/)
-- **IP-API** (`ip-api.com`) — no key. The free endpoint is **plain HTTP**, so the IP address travels unencrypted, and its terms allow it for **non-commercial use only**; a store should tick another provider. [Terms and privacy policy](https://ip-api.com/docs/legal)
 - **IP2Location.io** (`api.ip2location.io`) — API key. [Terms](https://www.ip2location.io/terms-of-service) · [Privacy policy](https://www.ip2location.io/privacy-policy)
 - **IPinfo** (`api.ipinfo.io`) — access token. [Terms](https://ipinfo.io/terms-of-service) · [Privacy policy](https://ipinfo.io/privacy-policy)
 - **ipstack** (`api.ipstack.com`) — access key. [Terms](https://www.ideracorp.com/legal/APILayer) · [Privacy policy](https://www.ideracorp.com/Legal/PrivacyPolicy)
@@ -30,7 +29,6 @@ A request sends the **visitor's IP address** and, for keyed providers, your API 
 ## Providers that run through WooCommerce
 
 - **MaxMind** — the plugin reads the GeoLite2 database file that WooCommerce's MaxMind Geolocation integration downloads with your MaxMind licence key. The plugin itself makes no call to MaxMind. [GeoLite2 licence](https://www.maxmind.com/en/geolite/eula) · [Privacy policy](https://www.maxmind.com/en/privacy-policy)
-- **WooCommerce Geolocation** — the plugin asks WooCommerce's own geolocation for the visitor's country and keeps WooCommerce's default behaviour: when no MaxMind database is present, **WooCommerce itself sends the IP address to its fallback geolocation web services** and caches the answer. Which services WooCommerce uses depends on its version: WooCommerce 7.9 uses ipinfo.io and ip-api.com; WooCommerce 11.x uses ipinfo.io and api.country.is. IPinfo and IP-API: see above. [country.is](https://country.is/) · Terms and privacy policy: none published.
 
 ## CDN country header
 

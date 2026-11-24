@@ -46,7 +46,7 @@ class WcGeolocationAdapter extends AbstractGeolocationAdapter {
 	 * @return string|null Raw country code reported by the provider.
 	 */
 	protected function lookup( string $ip ): ?string {
-		$location = WC_Geolocation::geolocate_ip( $ip );
+		$location = WC_Geolocation::geolocate_ip( $ip, false, false );
 
 		if ( empty( $location['country'] ) || ! is_string( $location['country'] ) ) {
 			return null;

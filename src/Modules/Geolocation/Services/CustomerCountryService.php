@@ -48,6 +48,12 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 	 */
 	private bool $ip_country_resolved = false;
 
+	private bool $cookie_localization_enabled = false;
+
+	private bool $cookie_sync_allowed = false;
+
+	private ?string $cookie_value_written = null;
+
 	/**
 	 * Constructor.
 	 *
@@ -82,6 +88,36 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 	}
 
 	/**
+	 * Register country cookie synchronization.
+	 *
+	 * @param bool $localizes Whether localized pricing is active.
+	 * @return void
+	 */
+	public function register_cookie_sync( bool $localizes ): void {
+		$this->cookie_localization_enabled = $localizes;
+		$this->cookie_sync_allowed         = ( ! is_admin() || wp_doing_ajax() ) && ! wp_doing_cron() && ( ! defined( 'WP_CLI' ) || ! WP_CLI );
+		add_action( 'wp', array( $this, 'sync_country_cookie_on_load' ), 21 );
+	}
+
+	/**
+	 * Synchronize the country cookie before storefront output.
+	 *
+	 * @return void
+	 */
+	public function sync_country_cookie_on_load(): void {
+		if ( is_admin() || ! is_woocommerce() || 'GET' !== filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) ) {
+			return;
+		}
+
+		if ( ! $this->cookie_localization_enabled || 'yes' !== Core::get_option( OptionsEnum::CountryCookie->value, 'no' ) ) {
+			$this->sync_country_cookie( null );
+			return;
+		}
+
+		$this->get_current_user_country();
+	}
+
+	/**
 	 * Get current visitor's country code.
 	 *
 	 * @return string|null Two-letter ISO country code.
@@ -93,6 +129,20 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 			return $override;
 		}
 
+		$country = $this->resolve_current_country();
+		if ( $this->cookie_sync_allowed ) {
+			$this->sync_country_cookie( $country );
+		}
+
+		return $country;
+	}
+
+	/**
+	 * Resolve the current visitor's country.
+	 *
+	 * @return string|null Country code or null.
+	 */
+	private function resolve_current_country(): ?string {
 		$mode = Core::get_option( OptionsEnum::CustomerGeolocation->value, 'geolocation' );
 
 		if ( is_user_logged_in() ) {
@@ -143,6 +193,53 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 	}
 
 	/**
+	 * Synchronize the country cookie.
+	 *
+	 * @param string|null $country Resolved country code.
+	 * @return void
+	 */
+	private function sync_country_cookie( ?string $country ): void {
+		$enabled = $this->cookie_localization_enabled && 'yes' === Core::get_option( OptionsEnum::CountryCookie->value, 'no' );
+		$value   = '';
+
+		if ( null !== $this->cookie_value_written ) {
+			$value = $this->cookie_value_written;
+		} elseif ( array_key_exists( 'lpm_country', $_COOKIE ) ) {
+			$value = is_string( $_COOKIE['lpm_country'] ) ? filter_var( wp_unslash( $_COOKIE['lpm_country'] ), FILTER_VALIDATE_REGEXP, array( 'options' => array( 'regexp' => '/^[A-Z]{2}$/D' ) ) ) : null;
+		}
+		$country = $enabled ? Utils::normalize_country_code( $country ) : null;
+
+		if ( $value === ( $country ?? '' ) ) {
+			return;
+		}
+
+		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+			define( 'DONOTCACHEPAGE', true );
+		}
+
+		if ( headers_sent() ) {
+			return;
+		}
+
+		$written = setcookie(
+			'lpm_country',
+			$country ?? '',
+			array(
+				'expires'  => time() + ( null !== $country ? self::GUEST_VALIDITY_PERIOD : -YEAR_IN_SECONDS ),
+				'path'     => defined( 'COOKIEPATH' ) && COOKIEPATH ? COOKIEPATH : '/',
+				'domain'   => (string) COOKIE_DOMAIN,
+				'secure'   => is_ssl(),
+				'httponly' => true,
+				'samesite' => 'Lax',
+			)
+		);
+
+		if ( $written ) {
+			$this->cookie_value_written = $country ?? '';
+		}
+	}
+
+	/**
 	 * Configure IP detection strategy from the plugin settings.
 	 *
 	 * @param IPDetectionStrategyEnum $default_strategy Default strategy.
@@ -164,14 +261,32 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 	public function on_user_login( string $user_login, WP_User $user ): void {
 		$country = $this->resolve_ip2country();
 
-		if ( null === $country ) {
+		if ( null !== $country ) {
+			update_user_meta( $user->ID, '_lpm_country', $country );
+			update_user_meta( $user->ID, '_lpm_country_last_check', time() );
+
+			do_action( Core::build_hook( HookEnum::CountryCustomerDetected->value ), $country, $user );
+		}
+
+		if ( ! $this->cookie_sync_allowed || ! $this->cookie_localization_enabled || 'yes' !== Core::get_option( OptionsEnum::CountryCookie->value, 'no' ) || null !== $this->get_debug_country_override() ) {
 			return;
 		}
 
-		update_user_meta( $user->ID, '_lpm_country', $country );
-		update_user_meta( $user->ID, '_lpm_country_last_check', time() );
+		if ( 'address' === Core::get_option( OptionsEnum::CustomerGeolocation->value, 'geolocation' ) ) {
+			$country = $this->get_country_from_user_meta_address( $user->ID );
+		} elseif ( null === $country ) {
+			$last_check = get_user_meta( $user->ID, '_lpm_country_last_check', true );
 
-		do_action( Core::build_hook( HookEnum::CountryCustomerDetected->value ), $country, $user );
+			if ( ! empty( $last_check ) && (int) $last_check >= time() - self::VALIDITY_PERIOD ) {
+				$country = Utils::normalize_country_code( get_user_meta( $user->ID, '_lpm_country', true ) );
+			}
+		}
+
+		if ( null !== $country ) {
+			$country = apply_filters( Core::build_hook( HookEnum::CountryGetUserCountry->value ), $country, $user );
+		}
+
+		$this->sync_country_cookie( $country );
 	}
 
 	/**
@@ -202,6 +317,10 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 		$session->set( '_lpm_country_last_check', time() );
 
 		do_action( Core::build_hook( HookEnum::CountryGuestDetected->value ), $country );
+
+		if ( $this->cookie_sync_allowed && $this->cookie_localization_enabled && 'yes' === Core::get_option( OptionsEnum::CountryCookie->value, 'no' ) ) {
+			$this->get_current_user_country();
+		}
 	}
 
 
@@ -220,7 +339,7 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 		}
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only debug preview switch.
-		if ( isset( $_GET['lpm_country'] ) ) {
+		if ( isset( $_GET['lpm_country'] ) && $this->has_valid_preview_nonce() ) {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only debug preview switch.
 			if ( ! is_string( $_GET['lpm_country'] ) ) {
 				return null;
@@ -230,6 +349,7 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 			$requested = sanitize_text_field( wp_unslash( $_GET['lpm_country'] ) );
 
 			if ( 'clear' === strtolower( $requested ) || '' === $requested ) {
+				$this->mark_request_uncacheable();
 				$session = $this->get_session();
 				if ( null !== $session ) {
 					$session->set( '_lpm_debug_country', null );
@@ -272,6 +392,25 @@ class CustomerCountryService implements ICustomerCountryService, IHookable {
 		}
 
 		return null;
+	}
+
+	/**
+	 * Verify the preview action for the current session.
+	 *
+	 * @return bool Whether the request carries a valid nonce.
+	 */
+	private function has_valid_preview_nonce(): bool {
+		$action = 'd6n_lpm_country_preview';
+		if ( ! is_user_logged_in() ) {
+			$session     = $this->get_session();
+			$customer_id = null !== $session ? $session->get_customer_id() : '';
+			if ( '' === $customer_id ) {
+				return false;
+			}
+			$action .= ':' . $customer_id;
+		}
+
+		return isset( $_GET['_wpnonce'] ) && is_string( $_GET['_wpnonce'] ) && false !== wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), $action );
 	}
 
 	/**

@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.1.0 =
+* Fix: Require a nonce for country preview changes.
+* Remove: IP-API free provider, whose HTTP endpoint and terms are unsuitable for store localization.
+* Add: Optional country cookie for page cache configuration.
+
 = 1.0.1 =
 * Fix: Disable exchange-rate and geolocation services by default on activation for explicit opt-in.
 * Fix: Use atomic Compare-And-Swap (CAS) migration lock release.

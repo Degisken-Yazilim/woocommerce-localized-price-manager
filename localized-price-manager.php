@@ -3,7 +3,7 @@
  * Plugin Name: Localized Price Manager
  * Description: Localized Price Manager for WooCommerce
  * Plugin URI: https://github.com/Degisken-Yazilim/woocommerce-localized-price-manager
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: Türker Yıldırım <me@turkeryildirim.com>
  * Author URI: https://turkeryildirim.com
  * Text Domain: localized-price-manager
@@ -34,7 +34,7 @@ define( 'D6N_LPM_BASENAME', plugin_basename( __FILE__ ) );
 define( 'D6N_LPM_DIR', plugin_dir_path( __FILE__ ) );
 define( 'D6N_LPM_DIR_URL', plugin_dir_url( __FILE__ ) );
 
-const D6N_LPM_VERSION         = '1.0.1';
+const D6N_LPM_VERSION         = '1.1.0';
 const D6N_LPM_MIN_PHP_VERSION = '8.2';
 const D6N_LPM_MIN_WP_VERSION  = '6.2';
 const D6N_LPM_MIN_WC_VERSION  = '7.9';

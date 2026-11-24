@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 8.2
 WC requires at least: 7.9
 WC tested up to: 11.2
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,7 +80,7 @@ In this order:
 4. The visitor's country row on **Countries & Groups** is switched on, and the **Exchange Rates** tab lists a rate for its currency.
 5. The product is a **simple** product.
 6. No full-page cache (caching plugin, host cache, CDN page cache) serves the shop pages. A cached page shows the prices of whoever loaded it first.
-7. On a local test site, web geolocation services are never asked about private addresses such as 127.0.0.1. Preview a country instead: with `WP_DEBUG` on and logged in as a shop manager, add `?lpm_country=FR` to a shop URL.
+7. On a local test site, web geolocation services are never asked about private addresses such as 127.0.0.1. Preview a country instead: with `WP_DEBUG` on and logged in as a shop manager, use the signed country preview link on the Geolocation settings tab and change the country code to FR.
 
 The **Logs** tab (Service channel) records failed geolocation and exchange-rate lookups.
 
@@ -132,11 +132,9 @@ Contacted by the background rate refresh and the **Update rates now** button, on
 Contacted to detect a visitor's country, only for the providers you tick. A request sends the **visitor's IP address** and, for keyed providers, your API key. Private and local addresses are never sent.
 
 * **GeoJS** — [Terms of use](https://www.geojs.io/tos/), [Privacy policy](https://www.geojs.io/privacy/)
-* **IP-API** — plain HTTP, non-commercial use only. [Terms and privacy policy](https://ip-api.com/docs/legal)
 * **IP2Location.io** — [Terms](https://www.ip2location.io/terms-of-service), [Privacy policy](https://www.ip2location.io/privacy-policy)
 * **IPinfo** — [Terms](https://ipinfo.io/terms-of-service), [Privacy policy](https://ipinfo.io/privacy-policy)
 * **ipstack** — [Terms](https://www.ideracorp.com/legal/APILayer), [Privacy policy](https://www.ideracorp.com/Legal/PrivacyPolicy)
-* **WooCommerce Geolocation** — without a MaxMind database, WooCommerce itself sends the IP address to its own geolocation services (ipinfo.io, and ip-api.com or [country.is](https://country.is/) depending on the WooCommerce version).
 * **MaxMind** — the plugin reads the database WooCommerce downloads and makes no call itself. [GeoLite2 licence](https://www.maxmind.com/en/geolite/eula), [Privacy policy](https://www.maxmind.com/en/privacy-policy)
 
 == Privacy ==

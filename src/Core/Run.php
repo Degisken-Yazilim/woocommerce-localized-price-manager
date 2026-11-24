@@ -128,6 +128,7 @@ class Run implements IHookable {
 		$this->schema_upgrader->register();
 		$this->cache_module->register();
 		$this->geolocation_module->register();
+		$this->geolocation_module->get_country_service()->register_cookie_sync( $localizes );
 		$this->exchange_rates_module->register();
 		$this->pricing_engine_module->register_rule_upkeep();
 

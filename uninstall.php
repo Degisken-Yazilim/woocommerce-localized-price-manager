@@ -18,7 +18,7 @@ if ( ! defined( 'D6N_LPM_DOMAIN' ) ) {
 }
 
 if ( ! defined( 'D6N_LPM_VERSION' ) ) {
-	define( 'D6N_LPM_VERSION', '1.0.1' );
+	define( 'D6N_LPM_VERSION', '1.1.0' );
 }
 
 if ( ! defined( 'D6N_LPM_DIR' ) ) {

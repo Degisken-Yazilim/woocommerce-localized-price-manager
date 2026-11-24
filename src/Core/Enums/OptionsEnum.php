@@ -30,6 +30,7 @@ enum OptionsEnum: string {
 	case PricingRevision = 'pricing_revision';
 
 	case GeolocationProviders = 'geolocation_providers';
+	case CountryCookie        = 'country_cookie';
 	case LogRetentionDays     = 'log_retention_days';
 	case DbLogEnabled         = 'db_log_enabled';
 	case FileLogEnabled       = 'file_log_enabled';

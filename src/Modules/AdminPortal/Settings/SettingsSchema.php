@@ -362,6 +362,16 @@ class SettingsSchema {
 		}
 
 		$fields[] = new SettingDefinition(
+			key: OptionsEnum::CountryCookie->value,
+			tab: self::TAB_GEOLOCATION,
+			type: SettingDefinition::TYPE_BOOLEAN,
+			control: SettingDefinition::CONTROL_TOGGLE,
+			default_value: 'no',
+			label: __( 'Country cookie', 'localized-price-manager' ),
+			description: __( 'Store the resolved country in the lpm_country cookie for page cache configuration. This does not configure the cache or enable country-specific page caching.', 'localized-price-manager' )
+		);
+
+		$fields[] = new SettingDefinition(
 			key: OptionsEnum::IPDetectionStrategy->value,
 			tab: self::TAB_GEOLOCATION,
 			type: SettingDefinition::TYPE_STRING,

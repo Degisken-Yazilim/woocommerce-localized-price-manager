@@ -138,6 +138,7 @@ class Activator {
 			OptionsEnum::ExchangeRateProviders->value => array(),
 			OptionsEnum::ExchangeRateFrequency->value => ExchangeFrequencyEnum::ThreeHours->value,
 			OptionsEnum::GeolocationProviders->value  => array(),
+			OptionsEnum::CountryCookie->value         => 'no',
 			OptionsEnum::TrustedHeaders->value        => '',
 			OptionsEnum::TrustedCountryHeaders->value => '',
 			OptionsEnum::TrustedProxyRanges->value    => '',

@@ -103,6 +103,15 @@ class SettingsPage {
 		} elseif ( SettingsSchema::TAB_RATES === $tab ) {
 			$this->rates->render();
 		} else {
+			if ( SettingsSchema::TAB_GEOLOCATION === $tab && defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				$preview_url = wp_nonce_url( add_query_arg( 'lpm_country', 'DE', home_url( '/' ) ), 'd6n_lpm_country_preview' );
+				printf(
+					'<p><a id="lpm-country-preview-url" href="%1$s">%2$s</a> %3$s</p>',
+					esc_url( $preview_url ),
+					esc_html__( 'Preview the store as Germany', 'localized-price-manager' ),
+					esc_html__( 'Change DE in the link to another country code or clear to end the preview.', 'localized-price-manager' )
+				);
+			}
 			$this->render_settings_form( $tab );
 		}
 

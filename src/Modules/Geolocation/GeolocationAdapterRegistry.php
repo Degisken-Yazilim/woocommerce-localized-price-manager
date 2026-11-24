@@ -9,7 +9,6 @@ use D6N\LPM\Core\Contracts\ILogger;
 use D6N\LPM\Modules\Geolocation\Adapters\GeoJsAdapter;
 use D6N\LPM\Modules\Geolocation\Adapters\HeaderGeolocationAdapter;
 use D6N\LPM\Modules\Geolocation\Adapters\Ip2LocationAdapter;
-use D6N\LPM\Modules\Geolocation\Adapters\IpApiAdapter;
 use D6N\LPM\Modules\Geolocation\Adapters\IpInfoAdapter;
 use D6N\LPM\Modules\Geolocation\Adapters\IpStackAdapter;
 use D6N\LPM\Modules\Geolocation\Adapters\MaxMindGeolocationAdapter;
@@ -26,7 +25,6 @@ class GeolocationAdapterRegistry {
 	public const PROVIDER_MAXMIND     = 'maxmind';
 	public const PROVIDER_WOOCOMMERCE = 'wc';
 	public const PROVIDER_GEOJS       = 'geojs';
-	public const PROVIDER_IPAPI       = 'ipapi';
 	public const PROVIDER_IP2LOCATION = 'ip2location';
 	public const PROVIDER_IPINFO      = 'ipinfo';
 	public const PROVIDER_IPSTACK     = 'ipstack';
@@ -48,7 +46,6 @@ class GeolocationAdapterRegistry {
 		self::PROVIDER_MAXMIND,
 		self::PROVIDER_WOOCOMMERCE,
 		self::PROVIDER_GEOJS,
-		self::PROVIDER_IPAPI,
 		self::PROVIDER_IP2LOCATION,
 		self::PROVIDER_IPINFO,
 		self::PROVIDER_IPSTACK,
@@ -88,13 +85,6 @@ class GeolocationAdapterRegistry {
 				'requires_api_key' => false,
 				'option_key'       => null,
 				'description'      => __( 'Free keyless country lookup service.', 'localized-price-manager' ),
-			),
-			self::PROVIDER_IPAPI       => array(
-				'name'             => __( 'IP-API.com', 'localized-price-manager' ),
-				'class'            => IpApiAdapter::class,
-				'requires_api_key' => false,
-				'option_key'       => null,
-				'description'      => __( 'Free keyless country lookup service, rate limited. Warning: queries travel over plain HTTP — anyone on the network path can read the visitor IP and alter the answer. Prefer an HTTPS provider when possible.', 'localized-price-manager' ),
 			),
 			self::PROVIDER_IP2LOCATION => array(
 				'name'             => __( 'IP2Location.io', 'localized-price-manager' ),

@@ -176,8 +176,8 @@ class LogPrivacyService implements IHookable {
 	public function get_privacy_policy_text(): string {
 		$paragraphs = array(
 			__( 'To show prices in the currency of your country, this store determines your country from your IP address. Your IP address is sent to the geolocation services enabled in the plugin settings, which return the country it belongs to.', 'localized-price-manager' ),
-			__( 'When the WooCommerce geolocation service is enabled and the store has no local MaxMind geolocation database, WooCommerce itself may send your IP address to an external geolocation service to look up its country, and keeps the answer for a while in a temporary cache entry named after your IP address. This is WooCommerce\'s own behaviour, which the plugin does not change.', 'localized-price-manager' ),
 			__( 'The detected country is stored in your WooCommerce session while you browse as a guest, and in your user profile when you are logged in, together with the time it was last checked.', 'localized-price-manager' ),
+			__( 'When enabled by the store, the lpm_country cookie stores the resolved country code for up to 24 hours to support page cache configuration.', 'localized-price-manager' ),
 			__( 'The plugin keeps a diagnostic log. Its entries may record your user ID, your username and your IP address. The IP address is stored in full on audit entries and on entries of warning severity or above, and with its last part removed on the other entries. While the site runs in debug mode, the IP address is stored in full on every entry.', 'localized-price-manager' ),
 			sprintf(
 				/* translators: %d: number of days log entries are kept. */

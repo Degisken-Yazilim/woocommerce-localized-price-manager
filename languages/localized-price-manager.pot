@@ -2,24 +2,29 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Localized Price Manager 1.0.0\n"
+"Project-Id-Version: Localized Price Manager 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/localized-price-manager\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-31T11:33:02+00:00\n"
+"POT-Creation-Date: 2026-11-24T14:48:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: localized-price-manager\n"
 
 #. Plugin Name of the plugin
 #: localized-price-manager.php
-#: src/Modules/AdminPortal/Pages/SettingsPage.php:90
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:92
 #: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:166
 #: src/Modules/Geolocation/Services/CustomerCountryPrivacyService.php:132
 msgid "Localized Price Manager"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: localized-price-manager.php
+msgid "https://github.com/Degisken-Yazilim/woocommerce-localized-price-manager"
 msgstr ""
 
 #. Description of the plugin
@@ -32,12 +37,17 @@ msgstr ""
 msgid "Türker Yıldırım <me@turkeryildirim.com>"
 msgstr ""
 
-#: localized-price-manager.php:82
+#. Author URI of the plugin
+#: localized-price-manager.php
+msgid "https://turkeryildirim.com"
+msgstr ""
+
+#: localized-price-manager.php:85
 msgid "Localized Price Manager requires WooCommerce to be installed and active."
 msgstr ""
 
 #. translators: 1: minimum supported WooCommerce version, 2: active WooCommerce version.
-#: localized-price-manager.php:85
+#: localized-price-manager.php:88
 #, php-format
 msgid "Localized Price Manager needs WooCommerce %1$s or newer. WooCommerce %2$s is active, so localized prices stay switched off."
 msgstr ""
@@ -111,28 +121,28 @@ msgstr ""
 msgid "Standard rounding"
 msgstr ""
 
-#: src/Core/Lifecycle/Activator.php:185
+#: src/Core/Lifecycle/Activator.php:187
 msgid "permission check"
 msgstr ""
 
-#: src/Core/Lifecycle/Activator.php:186
+#: src/Core/Lifecycle/Activator.php:188
 msgid "database schema"
 msgstr ""
 
-#: src/Core/Lifecycle/Activator.php:187
+#: src/Core/Lifecycle/Activator.php:189
 msgid "default settings"
 msgstr ""
 
-#: src/Core/Lifecycle/Activator.php:188
+#: src/Core/Lifecycle/Activator.php:190
 msgid "scheduled task intervals"
 msgstr ""
 
-#: src/Core/Lifecycle/Activator.php:189
+#: src/Core/Lifecycle/Activator.php:191
 msgid "background jobs"
 msgstr ""
 
 #. translators: %s: comma separated list of activation steps.
-#: src/Core/Lifecycle/Activator.php:207
+#: src/Core/Lifecycle/Activator.php:209
 #, php-format
 msgid "Localized Price Manager activated, but one step did not complete: %s. The plugin may not work correctly until it does; see the diagnostic log."
 msgid_plural "Localized Price Manager activated, but some steps did not complete: %s. The plugin may not work correctly until they do; see the diagnostic log."
@@ -425,39 +435,39 @@ msgstr ""
 msgid "Settings saved, but some values were rejected."
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:96
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:116
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:97
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:117
 msgid "Localized pricing rules"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:98
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:119
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:99
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:120
 msgid "A category rule may set a target currency, a rate override or a purchase block. A fixed amount is never meaningful across a whole category."
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:136
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:147
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:137
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:148
 msgid "Active"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:136
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:147
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:137
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:148
 msgid "Enable or disable this country rule."
-msgstr ""
-
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:137
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:148
-#: src/Modules/AdminPortal/Pages/CountriesTab.php:352
-msgid "Country"
-msgstr ""
-
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:137
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:148
-msgid "Select the country this rule applies to."
 msgstr ""
 
 #: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:138
 #: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:149
+#: src/Modules/AdminPortal/Pages/CountriesTab.php:352
+msgid "Country"
+msgstr ""
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:138
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:149
+msgid "Select the country this rule applies to."
+msgstr ""
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:139
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:150
 #: src/Modules/AdminPortal/Pages/CountriesTab.php:101
 #: src/Modules/AdminPortal/Pages/CountriesTab.php:168
 #: src/Modules/AdminPortal/Pages/CountriesTab.php:169
@@ -466,76 +476,76 @@ msgstr ""
 msgid "Currency"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:138
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:149
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:139
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:150
 msgid "Target currency for this country. Leave empty to use the country default currency."
-msgstr ""
-
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:139
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:152
-#: src/Modules/AdminPortal/Pages/RatesListTable.php:64
-msgid "Rate"
-msgstr ""
-
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:139
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:152
-msgid "Custom exchange rate multiplier. Leave empty to use the store exchange rate."
 msgstr ""
 
 #: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:140
 #: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:153
-msgid "Disable sale"
+#: src/Modules/AdminPortal/Pages/RatesListTable.php:64
+msgid "Rate"
 msgstr ""
 
 #: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:140
-msgid "Hide products in this category and prevent customers from purchasing them in this country."
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:153
+msgid "Custom exchange rate multiplier. Leave empty to use the store exchange rate."
 msgstr ""
 
 #: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:141
 #: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:154
+msgid "Disable sale"
+msgstr ""
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:141
+msgid "Hide products in this category and prevent customers from purchasing them in this country."
+msgstr ""
+
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:142
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:155
 msgid "Remove"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:151
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:152
 msgid "+ Add country rule"
 msgstr ""
 
 #. translators: %s: label of the field this help text belongs to.
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:170
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:170
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:171
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:171
 #: src/Modules/AdminPortal/Pages/CountriesTab.php:533
 #: src/Modules/AdminPortal/Settings/FieldRenderer.php:78
 #, php-format
 msgid "Help: %s"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:216
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:215
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:217
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:216
 msgid "Rule is active"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:225
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:220
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:226
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:221
 msgid "— Select country —"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:234
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:224
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:235
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:225
 msgid "— Country default —"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:249
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:243
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:250
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:244
 msgid "Block this country"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:253
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:247
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:254
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:248
 msgid "Remove row"
 msgstr ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:447
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:455
 #, php-format
 msgid "Localized Price Manager could not save the category price rule for %s. The rule already stored for it was kept unchanged."
 msgid_plural "Localized Price Manager could not save the category price rules for %s. The rules already stored for them were kept unchanged."
@@ -543,71 +553,71 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:463
+#: src/Modules/AdminPortal/Metaboxes/CategoryMetabox.php:471
 #, php-format
 msgid "Localized Price Manager did not save the category price rule for %s: the rate was negative, zero, too large, or had more decimal places than the column allows, or the currency was not one WooCommerce knows. The rule already stored for it was kept unchanged."
 msgid_plural "Localized Price Manager did not save the category price rules for %s: a rate was negative, zero, too large, or had more decimal places than the column allows, or the currency was not one WooCommerce knows. The rules already stored for them were kept unchanged."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:86
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:87
 msgid "Localized Prices"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:115
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:116
 msgid "Per-country price overrides"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:116
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:117
 msgid "Countries listed here override every category and global rule. Set a price, or leave the price empty and set a rate to derive it. With both left empty the base price is converted into the row's currency at the stored exchange rate."
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:129
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:130
 msgid "+ Add country"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:150
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:151
 msgid "Price"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:150
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:151
 msgid "Fixed regular price for this country. Leave the price and the rate empty to convert the base price automatically."
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:151
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:152
 msgid "Sale price"
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:151
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:152
 msgid "Fixed sale price for this country. Active only when the base product has a sale price."
 msgstr ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:153
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:154
 msgid "Hide this product and prevent customers from purchasing it in this country."
 msgstr ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:549
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:557
 #, php-format
 msgid "Localized Price Manager could not save the price rule for %s."
 msgid_plural "Localized Price Manager could not save the price rules for %s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:579
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:587
 msgid "The rule already stored for it was kept, except that any local sale price it carried was cleared, because the product is no longer on sale."
 msgid_plural "The rules already stored for them were kept, except that any local sale prices they carried were cleared, because the product is no longer on sale."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:587
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:595
 msgid "The rule already stored for it was kept unchanged."
 msgid_plural "The rules already stored for them were kept unchanged."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:605
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:613
 #, php-format
 msgid "Localized Price Manager did not save the price rule for %s: a rule may carry a local price or an exchange rate, not both."
 msgid_plural "Localized Price Manager did not save the price rules for %s: a rule may carry a local price or an exchange rate, not both."
@@ -615,7 +625,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:615
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:623
 #, php-format
 msgid "Localized Price Manager did not save the price rule for %s: a local price needs the product to have a regular price."
 msgid_plural "Localized Price Manager did not save the price rules for %s: a local price needs the product to have a regular price."
@@ -623,7 +633,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:625
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:633
 #, php-format
 msgid "Localized Price Manager did not save the price rule for %s: a local sale price needs a local regular price too."
 msgid_plural "Localized Price Manager did not save the price rules for %s: a local sale price needs a local regular price too."
@@ -631,7 +641,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:635
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:643
 #, php-format
 msgid "Localized Price Manager did not save the price rule for %s: the product is on sale, so a local price needs a local sale price too."
 msgid_plural "Localized Price Manager did not save the price rules for %s: the product is on sale, so a local price needs a local sale price too."
@@ -639,7 +649,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: comma separated list of ISO 3166-1 alpha-2 country codes.
-#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:644
+#: src/Modules/AdminPortal/Metaboxes/ProductMetabox.php:652
 #, php-format
 msgid "Localized Price Manager did not save the price rule for %s: a price, sale price or rate was negative, too large, or had more decimal places than the currency allows, or the currency was not one WooCommerce knows."
 msgid_plural "Localized Price Manager did not save the price rules for %s: a price, sale price or rate was negative, too large, or had more decimal places than the currency allows, or the currency was not one WooCommerce knows."
@@ -995,15 +1005,23 @@ msgstr ""
 msgid "You are not allowed to manage these settings."
 msgstr ""
 
-#: src/Modules/AdminPortal/Pages/SettingsPage.php:151
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:111
+msgid "Preview the store as Germany"
+msgstr ""
+
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:112
+msgid "Change DE in the link to another country code or clear to end the preview."
+msgstr ""
+
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:163
 msgid "Save changes"
 msgstr ""
 
-#: src/Modules/AdminPortal/Pages/SettingsPage.php:154
+#: src/Modules/AdminPortal/Pages/SettingsPage.php:166
 msgid "Update rates now"
 msgstr ""
 
-#: src/Modules/AdminPortal/Rest/RestController.php:62
+#: src/Modules/AdminPortal/Rest/RestController.php:78
 msgid "You are not allowed to manage Localized Price Manager settings."
 msgstr ""
 
@@ -1200,42 +1218,50 @@ msgid "Checked providers form the detection chain, tried in the order shown. Wit
 msgstr ""
 
 #: src/Modules/AdminPortal/Settings/SettingsSchema.php:370
-msgid "IP detection strategy"
+msgid "Country cookie"
 msgstr ""
 
 #: src/Modules/AdminPortal/Settings/SettingsSchema.php:371
+msgid "Store the resolved country in the lpm_country cookie for page cache configuration. This does not configure the cache or enable country-specific page caching."
+msgstr ""
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:380
+msgid "IP detection strategy"
+msgstr ""
+
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:381
 msgid "Leave this on Strict unless the site is behind a CDN or reverse proxy. Strict reads the connecting address and nothing else, which no visitor can forge."
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:389
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:399
 msgid "Trusted client IP headers"
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:390
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:400
 msgid "One header per line, most trusted first — for example CF-Connecting-IP, True-Client-IP, X-Real-IP. Only these are read, and only from a connecting address inside the approved ranges below. Name the header your own ingress writes: listing one you do not run lets visitors spoof their country. Left empty, no forwarded header is read at all."
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:401
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:411
 msgid "Trusted country headers"
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:402
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:412
 msgid "Optional. One header per line — for example CF-IPCountry. These carry a country code the edge has already resolved, so a match skips IP geolocation entirely. Same trust rules as above. Left empty, the country is always resolved from the IP address."
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:413
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:423
 msgid "Approved proxy IP ranges"
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:414
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:424
 msgid "One entry per line: a single IP, a CIDR range (203.0.113.0/24) or an IPv4 wildcard (203.0.113.*). A header above is read only when the connecting address matches one of these. Providers rotate their networks, so take the current list from your own provider and keep it current — cloudipdb.io/providers collects the published lists in one place, but the provider is the authority."
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:439
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:449
 msgid "Leave the masked value untouched to keep the stored key. Clear the field to remove it."
 msgstr ""
 
-#: src/Modules/AdminPortal/Settings/SettingsSchema.php:469
+#: src/Modules/AdminPortal/Settings/SettingsSchema.php:479
 msgid "Shop base currency"
 msgstr ""
 
@@ -1278,11 +1304,11 @@ msgid "To show prices in the currency of your country, this store determines you
 msgstr ""
 
 #: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:179
-msgid "When the WooCommerce geolocation service is enabled and the store has no local MaxMind geolocation database, WooCommerce itself may send your IP address to an external geolocation service to look up its country, and keeps the answer for a while in a temporary cache entry named after your IP address. This is WooCommerce's own behaviour, which the plugin does not change."
+msgid "The detected country is stored in your WooCommerce session while you browse as a guest, and in your user profile when you are logged in, together with the time it was last checked."
 msgstr ""
 
 #: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:180
-msgid "The detected country is stored in your WooCommerce session while you browse as a guest, and in your user profile when you are logged in, together with the time it was last checked."
+msgid "When enabled by the store, the lpm_country cookie stores the resolved country code for up to 24 hours to support page cache configuration."
 msgstr ""
 
 #: src/Modules/DiagnosticLog/Services/LogPrivacyService.php:181
@@ -1313,67 +1339,59 @@ msgstr ""
 msgid "Diagnostic log entries recorded while you were logged in."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:65
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:62
 msgid "CDN Header"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:69
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:66
 msgid "Country resolved by a trusted CDN edge. Requires an enabled CDN vendor."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:72
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:69
 msgid "MaxMind"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:76
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:73
 msgid "Local MaxMind database managed by the WooCommerce integration."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:79
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:76
 msgid "WooCommerce Geolocation"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:83
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:80
 msgid "The geolocation stack WooCommerce is already configured with."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:86
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:83
 msgid "GeoJS.io"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:90
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:87
 msgid "Free keyless country lookup service."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:93
-msgid "IP-API.com"
-msgstr ""
-
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:97
-msgid "Free keyless country lookup service, rate limited. Warning: queries travel over plain HTTP — anyone on the network path can read the visitor IP and alter the answer. Prefer an HTTPS provider when possible."
-msgstr ""
-
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:100
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:90
 msgid "IP2Location.io"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:104
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:94
 msgid "Commercial lookup service, requires an API key."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:107
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:97
 msgid "IPInfo.io"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:111
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:101
 msgid "Commercial lookup service, requires an access token."
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:114
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:104
 msgid "IPStack.com"
 msgstr ""
 
-#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:118
+#: src/Modules/Geolocation/GeolocationAdapterRegistry.php:108
 msgid "Commercial lookup service, requires an access key."
 msgstr ""
 
